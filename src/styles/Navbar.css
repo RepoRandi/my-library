@@ -1,0 +1,17 @@
+.nav-link:hover {
+  color: whitesmoke !important;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.nav-link {
+  color: wheat !important;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+}
+
+.dropdown-item {
+  color: whitesmoke;
+}
