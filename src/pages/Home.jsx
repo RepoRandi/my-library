@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import Cards from "../components/Cards";
+import Login from "../components/Login";
+import Jumbotron from "../components/Jumbotron";
 
 class Home extends Component {
   constructor(props) {
@@ -11,7 +13,9 @@ class Home extends Component {
     return (
       <div>
         <Navbar />
+        <Jumbotron />
         <Cards />
+        <Login />
       </div>
     );
   }

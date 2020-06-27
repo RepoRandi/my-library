@@ -1,17 +1,26 @@
-.nav-link:hover {
-  color: whitesmoke !important;
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
-}
-
-.nav-link {
-  color: wheat !important;
-}
-
 .dropdown-item:hover {
-  background-color: white;
+  background-color: silver;
 }
 
 .dropdown-item {
-  color: whitesmoke;
+  color: gray;
+}
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+  .menu {
+    color: gray !important;
+    margin-right: 20px;
+  }
+
+  .menu:hover::after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid gray;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+  }
 }

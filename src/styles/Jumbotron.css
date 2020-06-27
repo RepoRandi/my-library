@@ -1,0 +1,37 @@
+.jumbotron {
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  height: 340px;
+}
+
+.jumbotron .display-4 {
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+.jumbotron .display-4 span {
+  font-weight: 500;
+}
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+  .jumbotron {
+    background-image: url(../images/cover.jpg);
+    background-size: cover;
+    height: 540px;
+  }
+
+  .jumbotron .display-4 {
+    color: white;
+    text-align: center;
+    margin-top: 125px;
+    font-size: 50px;
+    font-weight: 200;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  }
+}

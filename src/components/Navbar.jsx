@@ -1,11 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSwatchbook, faHome } from "@fortawesome/free-solid-svg-icons";
-import logo from "../images/book.jpg";
+import logo from "../images/book.png";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light ">
       <a className="navbar-brand" href="/#">
         <img src={logo} alt="logo..." style={{ width: "3rem" }} />
       </a>
@@ -22,15 +22,15 @@ const Navbar = () => {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link " href="/#">
+            <a className="nav-link menu " href="/#">
               <FontAwesomeIcon icon={faHome} />
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#">
+            <a className="nav-link menu" href="/#">
               <FontAwesomeIcon icon={faSwatchbook} />
               All Book
             </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
               Book List
             </a>
             <div
-              className="dropdown-menu bg-primary"
+              className="dropdown-menu bg-light"
               aria-labelledby="navbarDropdown"
             >
               <a className="dropdown-item" href="/#">
