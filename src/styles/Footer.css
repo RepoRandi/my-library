@@ -1,0 +1,12 @@
+.footer {
+  margin-top: 25px !important;
+  border: 3px solid silver !important;
+}
+
+p {
+  text-align: justify;
+}
+
+.copy {
+  margin-top: -5px;
+}

@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import Cards from "../components/Cards";
 import Login from "../components/Login";
 import Jumbotron from "../components/Jumbotron";
+import Search from "../components/Search";
+import Footer from "../components/Footer";
+import Register from "../components/Register";
 
 class Home extends Component {
   constructor(props) {
@@ -12,10 +15,13 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar />
         <Jumbotron />
+        <Search />
         <Cards />
+        <Footer /> */}
         <Login />
+        {/* <Register /> */}
       </div>
     );
   }

@@ -1,16 +1,32 @@
-.dropdown-item:hover {
-  background-color: silver;
+.nav-link {
+  color: black !important;
 }
 
-.dropdown-item {
-  color: gray;
+.nav-link:hover {
+  color: cyan !important;
+}
+
+.dropdown-item:hover {
+  background-color: cyan;
+}
+
+.btn {
+  margin-left: 70px;
+}
+
+.btn:hover {
+  background-color: cyan;
 }
 
 /* Destop Version */
 
 @media (min-width: 992px) {
+  .navbar {
+    border: 2px solid silver !important;
+  }
+
   .menu {
-    color: gray !important;
+    color: black !important;
     margin-right: 20px;
   }
 
@@ -22,5 +38,9 @@
     margin: auto;
     padding-bottom: 5px;
     margin-bottom: -8px;
+  }
+
+  .btn {
+    margin-left: 20px;
   }
 }

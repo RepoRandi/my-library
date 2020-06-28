@@ -1,0 +1,75 @@
+body {
+  background: radial-gradient(#feffff, rgb(204, 226, 204), #a9f8f4);
+}
+
+.left {
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  height: 300px;
+  margin-top: -5px;
+}
+
+.arrow {
+  width: 100px !important;
+  height: 500rem;
+  color: red;
+}
+
+.form-regis {
+  margin-top: 75px;
+}
+
+.h1-title {
+  margin-left: -3px;
+}
+
+.btn-sub {
+  margin-left: 0;
+}
+
+.privacy {
+  margin-top: 130px;
+  color: gray;
+}
+
+span {
+  color: black;
+}
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+  body {
+    background: radial-gradient(#feffff, rgb(204, 226, 204), #a9f8f4);
+  }
+
+  .left {
+    background-image: url(../images/cover.jpg);
+    background-size: cover;
+    height: 667px;
+    margin-top: -5px;
+  }
+
+  .arrow {
+    width: 100px !important;
+    height: 500rem;
+    color: red;
+  }
+
+  .form-regis {
+    margin-top: 75px;
+  }
+
+  .btn-sub {
+    margin-left: 0;
+  }
+
+  .privacy {
+    margin-top: 130px;
+    color: gray;
+  }
+
+  span {
+    color: black;
+  }
+}

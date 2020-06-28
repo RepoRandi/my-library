@@ -2,18 +2,42 @@ body {
   background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
 }
 
+.lis {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #03fcfc;
+  margin-top: 10px;
+  margin-left: -13px;
+}
+
+.link {
+  margin-left: -80px !important;
+}
+
 .container-fluid {
-  margin-top: 25px;
+  margin-top: 3px;
 }
 
 .card-body {
   padding: 1rem 0 !important;
+  margin-bottom: 1rem;
+  height: 150px;
+}
+
+.card-title {
+  font-size: 1.2rem;
 }
 
 .card-text {
   font-size: 0.9rem;
-  padding: 0.4rem 1.9rem;
+  padding: 0.1rem 1rem;
   text-align: justify;
+}
+
+.detail {
+  margin-top: -30px;
+  font-size: 10px;
+  margin-right: 50px;
 }
 
 .container-fluid.row {
@@ -31,4 +55,67 @@ body {
 
 .card-img-top:hover {
   transform: scale(1.8);
+}
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+  body {
+    background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
+  }
+
+  .lis {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #03fcfc;
+    margin-top: 10px;
+    margin-left: -15px;
+  }
+
+  .link {
+    margin-right: 5px !important;
+  }
+
+  .container-fluid {
+    margin-top: 5px;
+  }
+
+  .card-body {
+    padding: 1rem 0 !important;
+    margin-bottom: 1rem;
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    padding: 0.1rem 1rem;
+    text-align: justify;
+  }
+
+  .detail {
+    margin-top: -20px;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+
+  .container-fluid.row {
+    padding-top: 6rem;
+  }
+
+  .overflow {
+    overflow: hidden;
+  }
+
+  .card-img-top {
+    transform: scale(1);
+    transition: transform 0.6s ease;
+  }
+
+  .card-img-top:hover {
+    transform: scale(1.8);
+  }
 }

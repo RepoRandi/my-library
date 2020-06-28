@@ -8,10 +8,19 @@ class Cards extends Component {
   render() {
     return (
       <div>
-        <h2 className="container-fluid">List Book</h2>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md">
+              <h3 className="container lis">List Book</h3>
+            </div>
+            <button type="button" className="btn btn-link link">
+              See All
+            </button>
+          </div>
+        </div>
         <div className="container-fluid d-flex justify-content-center">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-md-3 cards">
               <CardUi img={img1} title="Resident Evil" />
             </div>
             <div className="col-md-3">

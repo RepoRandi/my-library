@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSwatchbook, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/book.png";
 
 const Navbar = () => {
@@ -22,16 +22,15 @@ const Navbar = () => {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ml-auto">
+        <ul className="navbar-nav mx-auto">
           <li className="nav-item active">
             <a className="nav-link menu " href="/#">
               <FontAwesomeIcon icon={faHome} />
-              Home <span className="sr-only">(current)</span>
+              <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link menu" href="/#">
-              <FontAwesomeIcon icon={faSwatchbook} />
               All Book
             </a>
           </li>
@@ -45,7 +44,7 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Book List
+              List Book
             </a>
             <div
               className="dropdown-menu bg-light"
@@ -66,17 +65,14 @@ const Navbar = () => {
             </div>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search Books"
-            aria-label="Search"
-          />
-          <button className="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
+        <div>
+          <button className="btn  badge-pill btn-outline-dark my-2 my-sm-0">
+            Sign-in
           </button>
-        </form>
+          <button className="btn  badge-pill btn-dark my-2 my-sm-0">
+            Sign-up
+          </button>
+        </div>
       </div>
     </nav>
   );
