@@ -1,0 +1,24 @@
+.detail1 {
+    background-image: url(../images/Detail1.png);
+    background-size: cover;
+    height: 300px;
+    margin-top: -5px;
+}
+
+
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+    .detail1 {
+        background-image: url(../images/Detail1.png);
+        background-size: cover;
+        height: 300px;
+        margin-top: -5px;
+    }
+
+    .detail-img {
+        margin-top: -150px;
+        margin-left: 40px;
+    }
+}

@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Register from "../components/Register";
 import AddBook from "../components/AddBook";
+import Detail from "../components/Detail";
 
 class Home extends Component {
   constructor(props) {
@@ -22,8 +23,9 @@ class Home extends Component {
         <Cards />
         <Footer />
         <Login />
-        <Register /> */}
-        <AddBook />
+        <Register />
+        <AddBook /> */}
+        <Detail />
       </div>
     );
   }
