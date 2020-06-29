@@ -1,4 +1,4 @@
-body {
+.right {
   background: radial-gradient(#feffff, rgb(204, 226, 204), #a9f8f4);
 }
 
@@ -32,7 +32,7 @@ body {
   color: gray;
 }
 
-span {
+.span-color {
   color: black;
 }
 

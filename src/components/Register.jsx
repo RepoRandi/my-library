@@ -62,7 +62,8 @@ class Register extends Component {
             <div className="privacy">
               <h6>By signing up, you agree to Book's</h6>
               <h6>
-                <span>Terms And Conditions</span> & <span>Privacy Policy</span>
+                <span className="span-color">Terms And Conditions</span> &
+                <span>Privacy Policy</span>
               </h6>
             </div>
           </div>

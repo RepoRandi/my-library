@@ -15,11 +15,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar />
+        <Navbar />
         <Jumbotron />
         <Search />
         <Cards />
-        <Footer /> */}
+        <Footer />
         <Login />
         {/* <Register /> */}
       </div>

@@ -13,8 +13,9 @@
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
-.jumbotron .display-4 span {
+.span-jmb {
   font-weight: 500;
+  color: antiquewhite;
 }
 
 /* Destop Version */
