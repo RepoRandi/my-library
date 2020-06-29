@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/book.png";
 
 const Navbar = () => {
@@ -26,7 +26,14 @@ const Navbar = () => {
           <li className="nav-item active">
             <a className="nav-link menu " href="/#">
               <FontAwesomeIcon icon={faHome} />
+              &nbsp;Home
               <span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="nav-item active">
+            <a className="nav-link menu " href="/#">
+              <FontAwesomeIcon icon={faPlus} />
+              &nbsp;Book
             </a>
           </li>
           <li className="nav-item">
@@ -44,7 +51,7 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              List Book
+              Categories
             </a>
             <div
               className="dropdown-menu bg-light"
