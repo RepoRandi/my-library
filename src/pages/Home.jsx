@@ -6,6 +6,7 @@ import Jumbotron from "../components/Jumbotron";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Register from "../components/Register";
+import AddBook from "../components/AddBook";
 
 class Home extends Component {
   constructor(props) {
@@ -15,13 +16,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar />
         <Jumbotron />
         <Search />
         <Cards />
         <Footer />
         <Login />
-        {/* <Register /> */}
+        <Register /> */}
+        <AddBook />
       </div>
     );
   }
