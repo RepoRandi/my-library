@@ -11,9 +11,8 @@ body {
 }
 
 .link {
-  margin-left: -80px !important;
+  margin-left: -80px;
 }
-
 .container-fluid {
   margin-top: 3px;
 }
@@ -73,7 +72,7 @@ body {
   }
 
   .link {
-    margin-right: 5px !important;
+    margin-right: 5px;
   }
 
   .container-fluid {
