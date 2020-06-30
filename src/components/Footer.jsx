@@ -63,7 +63,7 @@ class Footer extends Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid copy text-center bg-secondary py-2">
+        <div className="container-fluid copy text-center py-2">
           &copy; 2020. All Right Are Reserved.
         </div>
       </footer>

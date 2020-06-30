@@ -54,18 +54,18 @@ class DetailBook extends Component {
               <img src={img} alt="img" style={{ width: "14rem" }} />
             </div>
             <div className="menu-detail">
-              <button type="submit" className="btn btn-warning">
+              <button type="submit" className="btn borrow btn-warning">
                 Borrow
               </button>
               <button
                 type="submit"
-                className="btn btn-success"
+                className="btn edit btn-success"
                 data-toggle="modal"
                 data-target="#modalEdit"
               >
                 Edit
               </button>
-              <button type="submit" className="btn btn-danger">
+              <button type="submit" className="btn delete btn-danger">
                 Delete
               </button>
             </div>

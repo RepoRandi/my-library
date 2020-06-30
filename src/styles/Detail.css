@@ -1,29 +1,40 @@
 .detail1 {
-    background-image: url(../images/Detail1.png);
-    background-size: cover;
-    height: 300px;
-    margin-top: -5px;
+  background-image: url(../images/Detail1.png);
+  background-size: cover;
+  height: 300px;
+  margin-top: -5px;
 }
-
-
 
 /* Destop Version */
 
 @media (min-width: 992px) {
-    .detail1 {
-        background-image: url(../images/Detail1.png);
-        background-size: cover;
-        height: 300px;
-        margin-top: -5px;
-    }
+  .detail1 {
+    background-image: url(../images/Detail1.png);
+    background-size: cover;
+    height: 300px;
+    margin-top: -5px;
+  }
 
-    .detail-img {
-        margin-top: -150px;
-        margin-left: 40px;
-    }
+  .detail-img {
+    margin-top: -150px;
+    margin-left: 40px;
+  }
 
-    .menu-detail {
-        margin-top: 20px;
-        margin-left: 13px;
-    }
+  .menu-detail {
+    margin-top: 20px;
+    margin-left: 50px !important;
+  }
+
+  .borrow {
+    margin-left: -20px !important;
+  }
+
+  .edit {
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+
+  .delete {
+    margin-left: 12px;
+  }
 }
