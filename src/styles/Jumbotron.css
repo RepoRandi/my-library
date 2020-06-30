@@ -1,35 +1,48 @@
-.jumbotron {
+.jumnav {
   background-image: url(../images/cover.jpg);
   background-size: cover;
-  height: 340px;
+  height: 250px;
+  position: relative;
+}
+
+.jumnav::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 75%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: 0;
+}
+
+.jumnav .container {
+  z-index: 1;
+  position: relative;
 }
 
 .jumbotron .display-4 {
-  color: white;
-  text-align: center;
-  margin-top: 100px;
-  font-size: 30px;
+  text-align: left;
+  margin-top: 30px;
+  font-size: 20px;
+  color: palevioletred;
   font-weight: 200;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .span-jmb {
   font-weight: 500;
-  color: antiquewhite;
+  color: pink;
 }
 
 /* Destop Version */
 
 @media (min-width: 992px) {
-  .jumbotron {
-    background-image: url(../images/cover.jpg);
-    background-size: cover;
-    height: 540px;
+  .jumnav {
+    height: 655px;
+    margin-top: -75px;
   }
 
   .jumbotron .display-4 {
-    color: white;
-    text-align: center;
     margin-top: 125px;
     font-size: 50px;
     font-weight: 200;

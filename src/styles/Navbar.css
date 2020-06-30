@@ -1,28 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
 .nav-link {
   color: black !important;
 }
 
 .nav-link:hover {
-  color: cyan !important;
+  color: palevioletred !important;
 }
 
 .dropdown-item:hover {
-  background-color: cyan;
+  background-color: palevioletred;
 }
 
-.btn {
+.btn-nav {
   margin-left: 70px;
 }
 
-.btn:hover {
-  background-color: cyan;
+.btn-nav:hover {
+  background-color: palevioletred;
 }
 
 /* Destop Version */
 
 @media (min-width: 992px) {
-  .navbar {
-    border: 2px solid silver !important;
+  .navbar-brand {
+    font-family: "Roboto", sans-serif !important;
+    font-weight: bolder;
   }
 
   .menu {
@@ -33,14 +41,14 @@
   .menu:hover::after {
     content: "";
     display: block;
-    border-bottom: 3px solid gray;
+    border-bottom: 3px solid palevioletred;
     width: 50%;
     margin: auto;
     padding-bottom: 5px;
     margin-bottom: -8px;
   }
 
-  .btn {
+  .btn-nav {
     margin-left: 20px;
   }
 

@@ -14,10 +14,10 @@ class Home extends Component {
     return (
       <div>
         <Navbar />
-        <Jumbotron />
+        {/* <Jumbotron />
         <Search />
         <Cards />
-        <Footer />
+        <Footer /> */}
       </div>
     );
   }

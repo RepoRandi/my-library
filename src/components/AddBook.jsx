@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import logo from "../images/arrow.png";
 
 class AddBook extends Component {
   constructor(props) {
@@ -9,7 +10,11 @@ class AddBook extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-3"></div>
+          <div className="col-md-3">
+            <a className="arrow" href="/">
+              <img src={logo} alt="logo..." style={{ width: "5rem" }} />
+            </a>
+          </div>
           <div className="col-md-6">
             <div className="header">
               <h1>Add Book</h1>

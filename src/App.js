@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Add from "./pages/Add";
 import AllBook from "./pages/AllBook";
 import Category from "./pages/Category";
+import Detail from "./pages/Detail";
 import "./styles/Navbar.css";
 import "./styles/Jumbotron.css";
 import "./styles/Search.css";
@@ -13,7 +14,6 @@ import "./styles/Cards.css";
 import "./styles/Footer.css";
 import "./styles/Register.css";
 import "./styles/Detail.css";
-import Detail from "./pages/Detail";
 
 function App() {
   return (

@@ -11,7 +11,7 @@ const CardUi = (props) => {
         <p className="card-text text-secondary">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
         </p>
-        <a href="/#" className="btn detail detail btn-dark">
+        <a href="/detail" className="btn detail detail btn-dark">
           Detail
         </a>
       </div>
