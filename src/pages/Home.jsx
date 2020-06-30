@@ -23,8 +23,8 @@ class Home extends Component {
         <Cards />
         <Footer />
         <Login />
-        <Register />
-        <AddBook /> */}
+        <Register /> */}
+        <AddBook />
         <Detail />
       </div>
     );
