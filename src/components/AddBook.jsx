@@ -18,70 +18,45 @@ class AddBook extends Component {
             <div className="body">
               <form className="was-validated">
                 <div className="form-group">
-                  <label>Title</label>
+                  <label for="titleAdd">Title</label>
                   <input
                     type="text"
                     name=""
+                    id="titleAdd"
                     className="form-control"
-                    placeholder="Required example textarea"
+                    placeholder="Input Title"
                     required
                   ></input>
                 </div>
-                <div className="form-group">
-                  <label for="exampleFormControlTextarea1">Description</label>
+                <div className="form-group ">
+                  <label for="descripAdd">Description</label>
                   <textarea
                     className="form-control is-invalid"
-                    id="validationTextarea"
-                    placeholder="Required example textarea"
+                    id="descripAdd"
+                    placeholder="Input Description"
                     required
                   ></textarea>
                 </div>
                 <div className="form-group">
-                  <label>Upload Image</label>
+                  <label for="uploadAdd">Upload Image</label>
                   <input
                     type="file"
                     className="form-control-file is-invalid"
+                    id="uploadAdd"
                     required
                   ></input>
-                </div>
-                <div className="form-group">
-                  <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                      <span
-                        className="input-group-text"
-                        id="inputGroupFileAddon01"
-                      >
-                        Choose
-                      </span>
-                    </div>
-                    <div className="custom-file">
-                      <input
-                        type="file"
-                        className="custom-file-input"
-                        id="inputGroupFile01"
-                        aria-describedby="inputGroupFileAddon01"
-                      ></input>
-                      <label class="custom-file-label" for="inputGroupFile01">
-                        Upload Image...
-                      </label>
-                    </div>
-                  </div>
+                  <small className="form-text text-muted">
+                    Upload Image Maks 2 Mb
+                  </small>
                 </div>
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label
-                        class="input-group-text"
-                        for="validatedInputGroupSelect"
-                      >
+                      <label class="input-group-text" for="genre">
                         Choose
                       </label>
                     </div>
-                    <select
-                      className="custom-select"
-                      id="validatedInputGroupSelect"
-                      required
-                    >
+                    <select className="custom-select" id="genre" required>
                       <option value="">Genre...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -92,18 +67,11 @@ class AddBook extends Component {
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label
-                        class="input-group-text"
-                        for="validatedInputGroupSelect"
-                      >
+                      <label class="input-group-text" for="author">
                         Choose
                       </label>
                     </div>
-                    <select
-                      className="custom-select"
-                      id="validatedInputGroupSelect"
-                      required
-                    >
+                    <select className="custom-select" id="author" required>
                       <option value="">Author...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -114,18 +82,11 @@ class AddBook extends Component {
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label
-                        class="input-group-text"
-                        for="validatedInputGroupSelect"
-                      >
+                      <label class="input-group-text" for="status">
                         Choose
                       </label>
                     </div>
-                    <select
-                      className="custom-select"
-                      id="validatedInputGroupSelect"
-                      required
-                    >
+                    <select className="custom-select" id="status" required>
                       <option value="">Status...</option>
                       <option value="Available">Available</option>
                       <option value="Not Available">Not Available</option>

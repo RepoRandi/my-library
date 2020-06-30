@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "../images/arrow.png";
 import img from "../images/Detail2.png";
 
-class Detail extends Component {
+class DetailBook extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -95,60 +95,47 @@ class Detail extends Component {
               <div className="modal-body">
                 <form className="was-validated">
                   <div className="form-group">
-                    <label>Title</label>
+                    <label for="titleDetail">Title</label>
                     <input
                       type="text"
                       name=""
+                      id="titleDetail"
                       className="form-control"
-                      placeholder="Required example textarea"
+                      placeholder="Input Title"
                       required
                     ></input>
                   </div>
                   <div className="form-group">
-                    <label for="exampleFormControlTextarea1">Description</label>
+                    <label for="descripDetail">Description</label>
                     <textarea
                       className="form-control is-invalid"
-                      id="validationTextarea"
+                      id="descripDetail"
                       placeholder="Required example textarea"
                       required
                     ></textarea>
                   </div>
                   <div className="form-group">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span
-                          class="input-group-text"
-                          id="inputGroupFileAddon01"
-                        >
-                          Choose
-                        </span>
-                      </div>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        ></input>
-                        <label class="custom-file-label" for="inputGroupFile01">
-                          Upload Image...
-                        </label>
-                      </div>
-                    </div>
+                    <label for="uploadDetail">Upload Image</label>
+                    <input
+                      type="file"
+                      className="form-control-file is-invalid"
+                      id="uploadDetail"
+                      required
+                    ></input>
+                    <small className="form-text text-muted">
+                      Upload Image Maks 2 Mb
+                    </small>
                   </div>
                   <div className="form-group">
                     <div className="input-group is-invalid">
                       <div className="input-group-prepend">
-                        <label
-                          class="input-group-text"
-                          for="validatedInputGroupSelect"
-                        >
+                        <label class="input-group-text" for="genreDetail">
                           Choose
                         </label>
                       </div>
                       <select
                         className="custom-select"
-                        id="validatedInputGroupSelect"
+                        id="genreDetail"
                         required
                       >
                         <option value="">Genre...</option>
@@ -161,16 +148,13 @@ class Detail extends Component {
                   <div className="form-group">
                     <div className="input-group is-invalid">
                       <div className="input-group-prepend">
-                        <label
-                          class="input-group-text"
-                          for="validatedInputGroupSelect"
-                        >
+                        <label class="input-group-text" for="authorDeail">
                           Choose
                         </label>
                       </div>
                       <select
                         className="custom-select"
-                        id="validatedInputGroupSelect"
+                        id="authorDeail"
                         required
                       >
                         <option value="">Author...</option>
@@ -183,16 +167,13 @@ class Detail extends Component {
                   <div className="form-group">
                     <div className="input-group is-invalid">
                       <div className="input-group-prepend">
-                        <label
-                          class="input-group-text"
-                          for="validatedInputGroupSelect"
-                        >
+                        <label class="input-group-text" for="statusDetail">
                           Choose
                         </label>
                       </div>
                       <select
                         className="custom-select"
-                        id="validatedInputGroupSelect"
+                        id="statusDetail"
                         required
                       >
                         <option value="">Status...</option>
@@ -220,4 +201,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default DetailBook;
