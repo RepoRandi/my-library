@@ -57,7 +57,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container-fluid" onSubmit={this.handleLogin}>
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-7 left">
             <a className="arrow" href="/#">
@@ -67,14 +67,18 @@ class Login extends Component {
           <div className="col-md-5 right">
             <h1 className="h1-title">Login</h1>
             <h5>Welcome Back, Please Login To Your Account</h5>
-            <form className="form-regis">
+            <br></br>
+            <br></br>
+            <form className="was-validated" onSubmit={this.handleLogin}>
               <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label for="inputEmailLogin">Email address</label>
                 <input
                   type="email"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="inputEmailLogin"
                   aria-describedby="emailHelp"
+                  placeholder="Input Your Email"
+                  required
                   value={this.state.username}
                   onChange={(e) => this.setState({ username: e.target.value })}
                 ></input>
@@ -83,11 +87,13 @@ class Login extends Component {
                 </small>
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="inputPasswordLogin">Password</label>
                 <input
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="inputPasswordLogin"
+                  placeholder="Input Your Password Min 8 characters"
+                  required
                   value={this.state.password}
                   onChange={(e) => this.setState({ password: e.target.value })}
                 ></input>
@@ -96,9 +102,9 @@ class Login extends Component {
                 <input
                   type="checkbox"
                   className="form-check-input"
-                  id="exampleCheck1"
+                  id="checkLogin"
                 ></input>
-                <label className="form-check-label" for="exampleCheck1">
+                <label className="form-check-label" for="checkLogin">
                   Check me out
                 </label>
               </div>

@@ -21,9 +21,9 @@ class Home extends Component {
         <Jumbotron />
         <Search />
         <Cards />
-        <Footer />
+        <Footer /> */}
         <Login />
-        <Register /> */}
+        <Register />
         <AddBook />
         <Detail />
       </div>

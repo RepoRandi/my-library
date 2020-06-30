@@ -18,7 +18,7 @@ class Register extends Component {
           <div className="col-md-5 right">
             <h1 className="h1-title">Register</h1>
             <h5>Welcome Back, Please Register To Create Account</h5>
-            <form className="form-regis">
+            <form className="form-regis was-validated">
               <div className="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input
@@ -26,6 +26,8 @@ class Register extends Component {
                   className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  placeholder="Input Your Email"
+                  required
                 ></input>
                 <small id="emailHelp" className="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -37,6 +39,8 @@ class Register extends Component {
                   type="password"
                   className="form-control"
                   id="exampleInputPassword1"
+                  placeholder="Input Your Password"
+                  required
                 ></input>
               </div>
               <div className="form-group form-check">
@@ -44,6 +48,7 @@ class Register extends Component {
                   type="checkbox"
                   className="form-check-input"
                   id="exampleCheck1"
+                  required
                 ></input>
                 <label className="form-check-label" for="exampleCheck1">
                   Dengan pembuatan akun, Anda menyetujui Syarat & Ketentuan
