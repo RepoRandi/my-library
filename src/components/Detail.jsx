@@ -19,7 +19,7 @@ class Detail extends Component {
         </div>
         <br></br>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-7">
             <button
               type="submit"
               className="btn btn-sub badge-pill btn-warning disabled"
@@ -29,22 +29,28 @@ class Detail extends Component {
             <h1>DILAN 1990</h1>
             <h5>30 Juni 2019</h5>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
-              sapiente debitis ex illum tempore illo. Libero, praesentium nihil.
-              Culpa optio pariatur ab hic amet praesentium ad blanditiis
-              impedit, nemo, fugit omnis ut, voluptas voluptatum officiis
-              voluptatem ea iste suscipit nisi! Quidem nobis voluptatem
-              deserunt! Impedit corporis aliquid nam dicta aspernatur!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium nostrum labore suscipit aliquid? Nostrum, quis
+              deleniti eveniet tenetur, expedita quae minima fugit dolorem
+              dolore cupiditate illum! Quaerat soluta at nisi debitis eaque
+              impedit enim et tempora amet. Rem voluptatibus excepturi quisquam
+              magni reiciendis pariatur officia facilis ea, alias laborum
+              aliquid inventore, libero, quos eligendi aut eum. Sit asperiores
+              adipisci cumque non facilis, sequi, minima laborum distinctio et
+              officia incidunt doloribus voluptatibus ipsa quas enim optio sunt
+              unde explicabo laboriosam sed quaerat blanditiis? Eligendi aliquam
+              id fugit optio veritatis placeat inventore officia cumque
+              voluptatum. Eum sint repudiandae culpa vel cupiditate quo.
             </p>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-2">
             <h3 className="text-success">Available</h3>
           </div>
           <div className="col-md-3">
             <div className="detail-img">
               <img src={img} alt="img" style={{ width: "14rem" }} />
             </div>
-            <div className="tombol">
+            <div className="menu-detail">
               <button type="submit" className="btn btn-warning">
                 Borrow
               </button>
