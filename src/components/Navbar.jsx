@@ -1,12 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faPlus,
+  faSwatchbook,
+  faListAlt,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/book.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light ">
-      <a className="navbar-brand" href="/#">
+      <a className="navbar-brand" href="/">
         <img src={logo} alt="logo..." style={{ width: "3rem" }} />
       </a>
       <button
@@ -24,21 +31,23 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mx-auto">
           <li className="nav-item active">
-            <a className="nav-link menu " href="/#">
-              <FontAwesomeIcon icon={faHome} />
-              &nbsp;Home
-              <span className="sr-only">(current)</span>
+            <a className="nav-link menu ">
+              <Link to="/detail">
+                <FontAwesomeIcon icon={faHome} />
+                <span className="sr-only">(current)</span>
+              </Link>
             </a>
           </li>
           <li className="nav-item active">
-            <a className="nav-link menu " href="/#">
+            <a className="nav-link menu " href="/add">
               <FontAwesomeIcon icon={faPlus} />
               &nbsp;Book
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link menu" href="/#">
-              All Book
+            <a className="nav-link menu" href="/all">
+              <FontAwesomeIcon icon={faSwatchbook} />
+              &nbsp;All Book
             </a>
           </li>
           <li className="nav-item dropdown">
@@ -51,34 +60,65 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Categories
+              <FontAwesomeIcon icon={faListAlt} />
+              &nbsp;Categories
             </a>
             <div
               className="dropdown-menu bg-light"
               aria-labelledby="navbarDropdown"
             >
-              <a className="dropdown-item" href="/#">
+              <a className="dropdown-item" href="/all">
                 Horror
               </a>
-              <a className="dropdown-item" href="/#">
+              <a className="dropdown-item" href="/all">
                 Religi
               </a>
-              <a className="dropdown-item" href="/#">
+              <a className="dropdown-item" href="/all">
                 Romance
               </a>
-              <a className="dropdown-item" href="/#">
+              <a className="dropdown-item" href="/all">
                 Tekonologi
+              </a>
+            </div>
+          </li>
+          <li className="nav-item dropdown drop-menu">
+            <a
+              className="nav-link dropdown-toggle"
+              href="/#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <FontAwesomeIcon icon={faUser} />
+            </a>
+            <div
+              className="dropdown-menu bg-light"
+              aria-labelledby="navbarDropdown"
+            >
+              <a className="dropdown-item" href="/all">
+                Profile
+              </a>
+              <a className="dropdown-item" href="/all">
+                Change Password
+              </a>
+              <a className="dropdown-item" href="/all">
+                Logout
               </a>
             </div>
           </li>
         </ul>
         <div>
-          <button className="btn  badge-pill btn-outline-dark my-2 my-sm-0">
+          <a
+            className="btn  badge-pill btn-outline-dark my-2 my-sm-0"
+            href="/login"
+          >
             Sign-in
-          </button>
-          <button className="btn  badge-pill btn-dark my-2 my-sm-0">
+          </a>
+          <a className="btn  badge-pill btn-dark my-2 my-sm-0" href="/register">
             Sign-up
-          </button>
+          </a>
         </div>
       </div>
     </nav>

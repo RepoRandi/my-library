@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
-import Cards from "../components/Cards";
-import Jumbotron from "../components/Jumbotron";
 import Search from "../components/Search";
-import Footer from "../components/Footer";
+import Cards from "../components/Cards";
+import Navbar from "../components/Navbar";
 
-class Home extends Component {
+class AllBook extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -14,13 +12,11 @@ class Home extends Component {
     return (
       <div>
         <Navbar />
-        <Jumbotron />
         <Search />
         <Cards />
-        <Footer />
       </div>
     );
   }
 }
 
-export default Home;
+export default AllBook;
