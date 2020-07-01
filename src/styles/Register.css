@@ -1,18 +1,12 @@
-.right {
-  background: radial-gradient(#feffff, rgb(204, 226, 204), #a9f8f4);
-}
-
 .left {
-  background-image: url(../images/cover.jpg);
+  background-image: url(../images/tekno.jpg);
   background-size: cover;
   height: 300px;
   margin-top: -5px;
 }
 
-.arrow {
-  width: 100px !important;
-  height: 500rem;
-  color: red;
+.right {
+  background: radial-gradient(#c2c6eb, rgb(177, 196, 207), #d5d9e4);
 }
 
 .form-regis {
@@ -39,25 +33,17 @@
 /* Destop Version */
 
 @media (min-width: 992px) {
-  body {
-    background: radial-gradient(#feffff, rgb(204, 226, 204), #a9f8f4);
-  }
-
   .left {
-    background-image: url(../images/cover.jpg);
     background-size: cover;
     height: 667px;
+  }
+
+  .right {
     margin-top: -5px;
   }
 
-  .arrow {
-    width: 100px !important;
-    height: 500rem;
-    color: red;
-  }
-
   .form-regis {
-    margin-top: 75px;
+    margin-top: 60px;
   }
 
   .btn-sub {

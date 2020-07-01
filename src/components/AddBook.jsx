@@ -10,15 +10,14 @@ class AddBook extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-4 left-add">
             <a className="arrow" href="/">
               <img src={logo} alt="logo..." style={{ width: "5rem" }} />
             </a>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <div className="header">
               <h1>Add Book</h1>
-              <h5>Welcome Back, Please Add Book For Send New Book</h5>
             </div>
             <div className="body">
               <form className="was-validated">
@@ -109,7 +108,7 @@ class AddBook extends Component {
               </form>
             </div>
           </div>
-          <div className="col-md-3"></div>
+          <div className="col-md-4 right-add"></div>
         </div>
       </div>
     );

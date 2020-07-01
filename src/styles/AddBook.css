@@ -1,0 +1,12 @@
+.left-add {
+    background-image: url(../images/ilustrasi4.jpg);
+    background-size: cover;
+    height: 667px;
+    margin-top: -5px;
+}
+
+.right-add {
+    background-image: url(../images/ilustrasi3.jpg);
+    background-size: cover;
+    margin-top: -5px;
+}

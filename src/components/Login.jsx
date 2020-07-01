@@ -59,17 +59,18 @@ class Login extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-7 left">
-            <a className="arrow" href="/#">
+          <div className="col-md-7 left-login">
+            <a className="arrow" href="/">
               <img src={logo} alt="logo..." style={{ width: "5rem" }} />
             </a>
           </div>
-          <div className="col-md-5 right">
+          <div className="col-md-5 right-login">
             <h1 className="h1-title">Login</h1>
             <h5>Welcome Back, Please Login To Your Account</h5>
-            <br></br>
-            <br></br>
-            <form className="was-validated" onSubmit={this.handleLogin}>
+            <form
+              className="form-login was-validated"
+              onSubmit={this.handleLogin}
+            >
               <div className="form-group">
                 <label for="inputEmailLogin">Email address</label>
                 <input

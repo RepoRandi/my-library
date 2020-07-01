@@ -11,7 +11,7 @@ class Register extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-7 left">
-            <a className="arrow" href="/#">
+            <a className="arrow" href="/">
               <img src={logo} alt="logo..." style={{ width: "5rem" }} />
             </a>
           </div>
@@ -29,9 +29,6 @@ class Register extends Component {
                   placeholder="Input Your Email"
                   required
                 ></input>
-                <small id="emailHelp" className="form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small>
               </div>
               <div className="form-group">
                 <label for="exampleInputPassword1">Password</label>
@@ -42,6 +39,20 @@ class Register extends Component {
                   placeholder="Input Your Password"
                   required
                 ></input>
+              </div>
+              <div className="form-group">
+                <div className="input-group is-invalid">
+                  <div className="input-group-prepend">
+                    <label class="input-group-text" for="genre">
+                      Choose
+                    </label>
+                  </div>
+                  <select className="custom-select" id="genre" required>
+                    <option value="">Role...</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Users</option>
+                  </select>
+                </div>
               </div>
               <div className="form-group form-check">
                 <input

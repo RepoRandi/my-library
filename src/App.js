@@ -13,6 +13,8 @@ import "./styles/Search.css";
 import "./styles/Cards.css";
 import "./styles/Footer.css";
 import "./styles/Register.css";
+import "./styles/Login.css";
+import "./styles/AddBook.css";
 import "./styles/Detail.css";
 import "./styles/Sliders.css";
 

@@ -1,0 +1,61 @@
+.left-login {
+    background-image: url(../images/inspirasi.jpg);
+    background-size: cover;
+    height: 300px;
+    margin-top: -5px;
+}
+
+.right-login {
+    background: radial-gradient(#f2c0ff, rgb(209, 248, 255), #fad4ff);
+}
+
+.form-login {
+    margin-top: 75px;
+}
+
+.h1-title {
+    margin-left: -3px;
+}
+
+.btn-sub {
+    margin-left: 0;
+}
+
+.privacy {
+    margin-top: 130px;
+    color: gray;
+}
+
+.span-color {
+    color: black;
+}
+
+/* Destop Version */
+
+@media (min-width: 992px) {
+    .left-login {
+        background-size: cover;
+        height: 667px;
+    }
+
+    .right-login {
+        margin-top: -5px;
+    }
+
+    .form-login {
+        margin-top: 100px;
+    }
+
+    .btn-sub {
+        margin-left: 0;
+    }
+
+    .privacy {
+        margin-top: 130px;
+        color: gray;
+    }
+
+    span {
+        color: black;
+    }
+}
