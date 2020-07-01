@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "../images/arrow.png";
 import img from "../images/Detail2.png";
+import logo1 from "../images/centang.png";
 
 class DetailBook extends Component {
   constructor(props) {
@@ -54,7 +55,12 @@ class DetailBook extends Component {
               <img src={img} alt="img" style={{ width: "14rem" }} />
             </div>
             <div className="menu-detail">
-              <button type="submit" className="btn borrow btn-warning">
+              <button
+                type="submit"
+                className="btn borrow btn-warning"
+                data-toggle="modal"
+                data-target="#modalBorrow"
+              >
                 Borrow
               </button>
               <button
@@ -65,12 +71,48 @@ class DetailBook extends Component {
               >
                 Edit
               </button>
-              <button type="submit" className="btn delete btn-danger">
+              <button
+                type="submit"
+                className="btn delete btn-danger"
+                data-toggle="modal"
+                data-target="#modalDelete"
+              >
                 Delete
               </button>
             </div>
           </div>
         </div>
+        {/* Modal Borrow */}
+        <div
+          class="modal fade"
+          id="modalBorrow"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modalBorrow"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-success" id="modalBorrow">
+                  Buku Berhasil Dipinjam
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">
+                <img src={logo1} alt="logo..." style={{ width: "10rem" }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Modal Batas Borrow */}
         {/* Modal Edit */}
         <div
           className="modal fade"
@@ -196,6 +238,37 @@ class DetailBook extends Component {
           </div>
         </div>
         {/* Batas Modal Edit */}
+        {/* Modal Delete */}
+        <div
+          class="modal fade"
+          id="modalDelete"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modalDelete"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-success" id="modalDelete">
+                  Buku Berhasil Dihapus
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">
+                <img src={logo1} alt="logo..." style={{ width: "10rem" }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Modal Batas Delete */}
       </div>
     );
   }
