@@ -1,40 +1,101 @@
-import React from "react";
-import Slider from "react-slick";
-import CardUi from "../components/CardUi";
-import img1 from "../images/Resident Evil.jpg";
-import img2 from "../images/grib.jpg";
-import img3 from "../images/insidious.jpg";
+import React, { Component } from "react";
+import img1 from "../images/poster1.png";
+import img2 from "../images/poster2.png";
+import img3 from "../images/poster3.png";
 
-class Sliders extends React.Component {
+class Sliders extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    let settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 2,
-    };
     return (
-      <Slider {...settings}>
-        <div>
-          <div className="container-fluid d-flex justify-content-center">
-            <div className="row">
-              <div className="col-md-3">
-                <CardUi img={img1} title="Resident Evil" />
-              </div>
-              <div className="col-md-3">
-                <CardUi img={img2} title="Grib Harold Lee Friedman" />
-              </div>
-              <div className="col-md-3">
-                <CardUi img={img3} title="Insidious" />
-              </div>
-              <div className="col-md-3">
-                <CardUi img={img3} title="Insidious" />
+      <div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-5 slideKiri"></div>
+            <div className="col-md-7">
+              <div
+                id="carouselExampleCaptions"
+                className="carousel slide"
+                data-ride="carousel"
+              >
+                <ol className="carousel-indicators">
+                  <li
+                    data-target="#carouselExampleCaptions"
+                    data-slide-to="0"
+                    className="active"
+                  ></li>
+                  <li
+                    data-target="#carouselExampleCaptions"
+                    data-slide-to="1"
+                  ></li>
+                  <li
+                    data-target="#carouselExampleCaptions"
+                    data-slide-to="2"
+                  ></li>
+                </ol>
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img
+                      src={img1}
+                      className="d-block w-100 slideSize"
+                      alt="img"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={img2}
+                      className="d-block w-100 slideSize"
+                      alt="img"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={img3}
+                      className="d-block w-100 slideSize"
+                      alt="img"
+                    />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  className="carousel-control-prev"
+                  href="#carouselExampleCaptions"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="sr-only">Previous</span>
+                </a>
+                <a
+                  className="carousel-control-next"
+                  href="#carouselExampleCaptions"
+                  role="button"
+                  data-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="sr-only">Next</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </Slider>
+      </div>
     );
   }
 }

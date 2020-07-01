@@ -1,3 +1,4 @@
+/* Jumbotron Navbar */
 .jumnav {
   background-image: url(../images/cover.jpg);
   background-size: cover;
@@ -34,9 +35,14 @@
   color: pink;
 }
 
+/* Jumbotron Navbar */
+
+
 /* Destop Version */
 
 @media (min-width: 992px) {
+
+  /* Jumbotron Navbar */
   .jumnav {
     height: 655px;
     margin-top: -75px;
@@ -48,4 +54,7 @@
     font-weight: 200;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
   }
+
+  /* Jumbotron Navbar */
+
 }

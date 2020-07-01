@@ -14,6 +14,7 @@ import "./styles/Cards.css";
 import "./styles/Footer.css";
 import "./styles/Register.css";
 import "./styles/Detail.css";
+import "./styles/Sliders.css";
 
 function App() {
   return (

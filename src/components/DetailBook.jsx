@@ -110,7 +110,7 @@ class DetailBook extends Component {
                     <textarea
                       className="form-control is-invalid"
                       id="descripDetail"
-                      placeholder="Required example textarea"
+                      placeholder="Input Description"
                       required
                     ></textarea>
                   </div>

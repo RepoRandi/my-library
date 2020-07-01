@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import Cards from "../components/Cards";
-import Jumbotron from "../components/Jumbotron";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
+import Sliders from "../components/Sliders";
 
 class Home extends Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        {/* <Jumbotron /> */}
-        <Search />
+        {/* <Navbar /> */}
+        <Sliders />
+        {/* <Search />
         <Cards />
-        <Footer />
+        <Footer /> */}
       </div>
     );
   }
