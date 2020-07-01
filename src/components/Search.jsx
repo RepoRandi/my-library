@@ -11,7 +11,7 @@ class Search extends Component {
         <form>
           <div className="input-group mb-3">
             <input
-              className="form-control "
+              className="form-control form-search"
               type="search"
               placeholder="Search Books"
               aria-label="Search"
