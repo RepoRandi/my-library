@@ -34,6 +34,10 @@ class Sliders extends Component {
                     data-target="#carouselExampleCaptions"
                     data-slide-to="2"
                   ></li>
+                  <li
+                    data-target="#carouselExampleCaptions"
+                    data-slide-to="3"
+                  ></li>
                 </ol>
                 <div className="carousel-inner">
                   <div className="carousel-item active">
@@ -42,9 +46,6 @@ class Sliders extends Component {
                       className="d-block w-100 slideSize"
                       alt="img"
                     />
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                    </div>
                   </div>
                   <div className="carousel-item">
                     <img
@@ -52,9 +53,6 @@ class Sliders extends Component {
                       className="d-block w-100 slideSize"
                       alt="img"
                     />
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                    </div>
                   </div>
                   <div className="carousel-item">
                     <img
@@ -62,9 +60,6 @@ class Sliders extends Component {
                       className="d-block w-100 slideSize"
                       alt="img"
                     />
-                    <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                    </div>
                   </div>
                   <div className="carousel-item">
                     <img

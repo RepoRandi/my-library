@@ -1,5 +1,5 @@
 body {
-  background: radial-gradient(#ffd6d6, rgb(255, 224, 241), #ffffff) !important;
+  background: radial-gradient(#f8e4e4, rgb(255, 224, 241), #ffffff) !important;
 }
 
 .lis {
@@ -13,6 +13,7 @@ body {
 .link {
   margin-left: -80px;
 }
+
 .container-fluid {
   margin-top: 3px;
 }
