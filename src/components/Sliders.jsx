@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import img1 from "../images/poster1.png";
 import img2 from "../images/poster2.png";
 import img3 from "../images/poster3.png";
+import img4 from "../images/poster4.png";
 
 class Sliders extends Component {
   constructor(props) {
@@ -13,8 +14,7 @@ class Sliders extends Component {
       <div>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-5 slideKiri"></div>
-            <div className="col-md-7">
+            <div className="col-md">
               <div
                 id="carouselExampleCaptions"
                 className="carousel slide"
@@ -65,6 +65,13 @@ class Sliders extends Component {
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
                     </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={img4}
+                      className="d-block w-100 slideSize"
+                      alt="img"
+                    />
                   </div>
                 </div>
                 <a
