@@ -8,7 +8,7 @@ import {
   faListAlt,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import logo from "../images/book.png";
+import logo from "../images/logo.png";
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg sticky-top navbar-light">
         <a className="navbar-brand" href="/">
           <img src={logo} alt="logo..." style={{ width: "3rem" }} />
-          &nbsp;MyLibrary
+          &nbsp;<span className="span-brand">My</span>Library
         </a>
         <button
           className="navbar-toggler"
