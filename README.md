@@ -15,10 +15,8 @@
 * [License](https://github.com/RepoRandi/LibraryApps#License)
 
 ## Built-With
-- [Node.js](http://nodejs.org/) - JavaScript runtime environment
-- [Express.js](https://expressjs.com/) - Web framework
-- [MySQL](https://www.mysql.com/) Database
-- [Bcrypt](https://github.com/kelektiv/node.bcrypt.js) - Password Hashing
+- [React.js](http://reactjs.org/) - FrontEnd Library JavaScript
+- [Bootstrap](https://getbootstrap.com/) - Css Framework
 - [JWT](https://jwt.io/) - Login/Register authentication
 
 ## Features
@@ -41,16 +39,11 @@
 2. Install depedencies:
     - `cd LibraryApps` 
     - `npm install`
-3. Start XAMPP
-4. Database configuration:
-    * Open http://localhost/phpmyadmin in the browser
-    * Create a new table with the name `LibraryApss`
-    * Import database to current table, select `libraryapps.sql` file from project folder
-5. Start the server:
+3. Start the server:
     * Open Terminal `npm start`
 
 ## Live
-- [https://localhost:3000](https://localhost:3000)
+- [https://localhost:3006](https://localhost:3006)
 
 ### HTTP-Verbs
 
