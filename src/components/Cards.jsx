@@ -35,6 +35,22 @@ class Cards extends Component {
             </div>
           </div>
         </div>
+        <div className="container-fluid d-flex justify-content-center">
+          <div className="row">
+            <div className="col-md-3 cards">
+              <CardUi img={img1} title="Dilan" />
+            </div>
+            <div className="col-md-3">
+              <CardUi img={img2} title="Tempting The Marquess" />
+            </div>
+            <div className="col-md-3">
+              <CardUi img={img3} title="Insidious" />
+            </div>
+            <div className="col-md-3">
+              <CardUi img={img4} title="Bukan Cinderella" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

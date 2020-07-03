@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import { connect } from "react-redux";
+import { login } from "../redux/actions/auth";
 import logo from "../images/arrow.png";
+import { useHistory } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -14,41 +17,51 @@ class Login extends Component {
 
   getAllBook = () => {
     const token = localStorage.getItem("token");
-    axios({
-      method: "GET",
-      url: "http://localhost:3000/mybook",
-      headers: {
-        Authorization: token,
-      },
-    })
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          books: response.data.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    // axios({
+    //   method: "GET",
+    //   url: "http://localhost:3000/mybook",
+    //   headers: {
+    //     Authorization: token,
+    //   },
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.setState({
+    //       books: response.data.data,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response);
+    //   });
   };
+
+  // const history = useHistory();
 
   handleLogin = (event) => {
     event.preventDefault();
-    axios({
-      method: "POST",
-      url: "http://localhost:3000/auth/login",
-      data: {
-        username: this.state.username,
-        password: this.state.password,
-      },
-    })
-      .then((response) => {
-        console.log(response);
-        localStorage.setItem("token", response.data.data[0].token);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    const data = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+    console.log(data);
+    this.props.login(data).then(() => {
+      this.props.history.push("/");
+    });
+    // axios({
+    //   method: "POST",
+    //   url: "http://localhost:3000/auth/login",
+    //   data: {
+    //     username: this.state.username,
+    //     password: this.state.password,
+    //   },
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //     localStorage.setItem("token", response.data.data[0].token);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response);
+    //   });
   };
 
   componentDidMount() {
@@ -169,4 +182,10 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = { login };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

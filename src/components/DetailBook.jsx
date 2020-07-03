@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "../images/arrow.png";
 import img from "../images/Detail2.png";
 import logo1 from "../images/centang.png";
+import logo2 from "../images/centang.gif";
 
 class DetailBook extends Component {
   constructor(props) {
@@ -250,9 +251,6 @@ class DetailBook extends Component {
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title text-success" id="modalDelete">
-                  Buku Berhasil Dihapus
-                </h5>
                 <button
                   type="button"
                   class="close"
@@ -262,8 +260,9 @@ class DetailBook extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              <h3 className="text-center text-danger">Buku Berhasil Dihapus</h3>
               <div class="modal-body text-center">
-                <img src={logo1} alt="logo..." style={{ width: "10rem" }} />
+                <img src={logo2} alt="logo..." style={{ width: "10rem" }} />
               </div>
             </div>
           </div>
