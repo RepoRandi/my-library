@@ -4,6 +4,7 @@ import Cards from "../components/Cards";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Sliders from "../components/Sliders";
+import GetBooks from "../components/GetBooks";
 
 class Home extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Home extends Component {
         <Sliders />
         <Search />
         <Cards />
+        <GetBooks />
         <Footer />
       </div>
     );
