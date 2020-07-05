@@ -16,7 +16,7 @@ class Search extends Component {
               placeholder="Search Books"
               aria-label="Search"
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
               <button
                 className="btn search badge-pill btn-outline-dark "
                 type="submit"

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/auth";
 import logo from "../images/arrow.png";
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -188,4 +188,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = { login };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+const pushRoute = withRouter(Login);
+
+export default connect(mapStateToProps, mapDispatchToProps)(pushRoute);
