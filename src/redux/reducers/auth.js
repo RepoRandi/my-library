@@ -28,6 +28,11 @@ const auth = (state = initialState, action) => {
         isError: false,
         data: action.payload.data.data[0],
       };
+    case "LOGOUT_FULFILLED":
+      return {
+        ...state,
+        data: {},
+      };
     default: {
       return state;
     }

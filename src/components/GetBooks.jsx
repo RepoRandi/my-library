@@ -34,13 +34,16 @@ class GetBooks extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.book.data.map((item, index) => {
+            {this.props.book.data.map((item) => {
               return (
                 <tr key={item.id}>
                   <td>{item.title}</td>
                   <td>{item.description}</td>
                   <td>{item.image}</td>
                   <td>{item.genre}</td>
+                  <td>
+                    <img src={item.image} alt="img" className="card-img-top" />
+                  </td>
                 </tr>
               );
             })}
