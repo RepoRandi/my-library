@@ -1,11 +1,32 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { register } from "../redux/actions/auth";
 import logo from "../images/arrow.png";
 
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: "",
+      password: "",
+      role: 0,
+    };
   }
+
+  handleRegister = (event) => {
+    event.preventDefault();
+    const data = {
+      username: this.state.username,
+      password: this.state.password,
+      role: this.state.role,
+    };
+    console.log(data);
+    this.props.register(data).then(() => {
+      this.props.history.push("/login");
+    });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -18,9 +39,12 @@ class Register extends Component {
           <div className="col-md-5 right">
             <h1 className="h1-title">Register</h1>
             <h5>Welcome Back, Please Register To Create Account</h5>
-            <form className="form-regis was-validated">
+            <form
+              className="form-regis was-validated"
+              onSubmit={this.handleRegister}
+            >
               <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label>Email address</label>
                 <input
                   type="email"
                   className="form-control"
@@ -28,29 +52,39 @@ class Register extends Component {
                   aria-describedby="emailHelp"
                   placeholder="Input Your Email"
                   required
+                  value={this.state.username}
+                  onChange={(e) => this.setState({ username: e.target.value })}
                 ></input>
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label>Password</label>
                 <input
                   type="password"
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Input Your Password"
                   required
+                  value={this.state.password}
+                  onChange={(e) => this.setState({ password: e.target.value })}
                 ></input>
               </div>
               <div className="form-group">
                 <div className="input-group is-invalid">
                   <div className="input-group-prepend">
-                    <label class="input-group-text" for="genre">
+                    <label className="input-group-text" for="role">
                       Choose
                     </label>
                   </div>
-                  <select className="custom-select" id="genre" required>
+                  <select
+                    className="custom-select"
+                    id="role"
+                    required
+                    value={this.state.role}
+                    onChange={(e) => this.setState({ role: e.target.value })}
+                  >
                     <option value="">Role...</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Users</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
                   </select>
                 </div>
               </div>
@@ -89,4 +123,13 @@ class Register extends Component {
   }
 }
 
-export default Register;
+// export default Register;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = { register };
+
+const routePush = withRouter(Register);
+
+export default connect(mapStateToProps, mapDispatchToProps)(routePush);

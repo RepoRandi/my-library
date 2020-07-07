@@ -31,6 +31,9 @@ const auth = (state = initialState, action) => {
     case "LOGOUT_FULFILLED":
       return {
         ...state,
+        isLoading: false,
+        isError: false,
+        errorMsg: "",
         data: {},
       };
     default: {

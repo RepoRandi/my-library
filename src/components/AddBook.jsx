@@ -1,11 +1,36 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { postBook } from "../redux/actions/book";
 import logo from "../images/arrow.png";
 
 class AddBook extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      title: "",
+      description: "",
+      image: [],
+      id_genre: 0,
+      id_auhor: 0,
+      status: "",
+    };
   }
+
+  handleAddBook = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("title", this.state.title);
+    formData.append("description", this.state.description);
+    formData.append("image", this.state.image[0]);
+    formData.append("id_genre", this.state.id_genre);
+    formData.append("id_author", this.state.id_author);
+    formData.append("status", this.state.status);
+    this.props.postBook(formData).then(() => {
+      this.props.history.push("/");
+    });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -20,9 +45,9 @@ class AddBook extends Component {
               <h1>Add Book</h1>
             </div>
             <div className="body">
-              <form className="was-validated">
+              <form className="was-validated" onSubmit={this.handleAddBook}>
                 <div className="form-group">
-                  <label for="titleAdd">Title</label>
+                  <label>Title</label>
                   <input
                     type="text"
                     name=""
@@ -30,24 +55,31 @@ class AddBook extends Component {
                     className="form-control"
                     placeholder="Input Title"
                     required
+                    value={this.state.title}
+                    onChange={(e) => this.setState({ title: e.target.value })}
                   ></input>
                 </div>
                 <div className="form-group ">
-                  <label for="descripAdd">Description</label>
+                  <label>Description</label>
                   <textarea
                     className="form-control is-invalid"
                     id="descripAdd"
                     placeholder="Input Description"
                     required
+                    value={this.state.description}
+                    onChange={(e) =>
+                      this.setState({ description: e.target.value })
+                    }
                   ></textarea>
                 </div>
                 <div className="form-group">
-                  <label for="uploadAdd">Upload Image</label>
+                  <label>Upload Image</label>
                   <input
                     type="file"
                     className="form-control-file is-invalid"
                     id="uploadAdd"
                     required
+                    onChange={(e) => this.setState({ image: e.target.files })}
                   ></input>
                   <small className="form-text text-muted">
                     Upload Image Maks 2 Mb
@@ -56,11 +88,17 @@ class AddBook extends Component {
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label class="input-group-text" for="genre">
-                        Choose
-                      </label>
+                      <label className="input-group-text">Choose</label>
                     </div>
-                    <select className="custom-select" id="genre" required>
+                    <select
+                      className="custom-select"
+                      id="genre"
+                      required
+                      value={this.state.id_genre}
+                      onChange={(e) =>
+                        this.setState({ id_genre: e.target.value })
+                      }
+                    >
                       <option value="">Genre...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -71,11 +109,17 @@ class AddBook extends Component {
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label class="input-group-text" for="author">
-                        Choose
-                      </label>
+                      <label className="input-group-text">Choose</label>
                     </div>
-                    <select className="custom-select" id="author" required>
+                    <select
+                      className="custom-select"
+                      id="author"
+                      required
+                      value={this.state.id_auhor}
+                      onChange={(e) =>
+                        this.setState({ id_auhor: e.target.value })
+                      }
+                    >
                       <option value="">Author...</option>
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -86,11 +130,17 @@ class AddBook extends Component {
                 <div className="form-group">
                   <div className="input-group is-invalid">
                     <div className="input-group-prepend">
-                      <label class="input-group-text" for="status">
-                        Choose
-                      </label>
+                      <label className="input-group-text">Choose</label>
                     </div>
-                    <select className="custom-select" id="status" required>
+                    <select
+                      className="custom-select"
+                      id="status"
+                      required
+                      value={this.state.status}
+                      onChange={(e) =>
+                        this.setState({ status: e.target.value })
+                      }
+                    >
                       <option value="">Status...</option>
                       <option value="Available">Available</option>
                       <option value="Not Available">Not Available</option>
@@ -115,4 +165,14 @@ class AddBook extends Component {
   }
 }
 
-export default AddBook;
+// export default AddBook;
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = { postBook };
+
+const routePush = withRouter(AddBook);
+
+export default connect(mapStateToProps, mapDispatchToProps)(routePush);

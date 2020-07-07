@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/auth";
 import logo from "../images/arrow.png";
@@ -11,31 +10,8 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      books: [],
     };
   }
-
-  getAllBook = () => {
-    const token = localStorage.getItem("token");
-    // axios({
-    //   method: "GET",
-    //   url: "http://localhost:3000/mybook",
-    //   headers: {
-    //     Authorization: token,
-    //   },
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //     this.setState({
-    //       books: response.data.data,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response);
-    //   });
-  };
-
-  // const history = useHistory();
 
   handleLogin = (event) => {
     event.preventDefault();
@@ -63,10 +39,6 @@ class Login extends Component {
     //     console.log(error.response);
     //   });
   };
-
-  componentDidMount() {
-    this.getAllBook();
-  }
 
   render() {
     return (

@@ -19,3 +19,17 @@ export const logout = () => {
     type: "LOGOUT_FULFILLED",
   };
 };
+
+export const register = (data) => {
+  return {
+    type: "REGISTER",
+    payload: axios({
+      method: "post",
+      url: "http://localhost:3000/auth/register",
+      data: {
+        username: data.username,
+        password: data.password,
+      },
+    }),
+  };
+};

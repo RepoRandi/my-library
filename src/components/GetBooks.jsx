@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table } from "reactstrap";
 import { connect } from "react-redux";
 import { getBook } from "../redux/actions/book";
+import ListBook from "./ListBook";
 
 class GetBooks extends Component {
   constructor(props) {
@@ -23,8 +24,7 @@ class GetBooks extends Component {
   render() {
     return (
       <div>
-        <h1>Book</h1>
-        <Table>
+        {/* <Table>
           <thead>
             <tr>
               <th>Title</th>
@@ -43,12 +43,27 @@ class GetBooks extends Component {
                   <td>{item.genre}</td>
                   <td>
                     <img src={item.image} alt="img" className="card-img-top" />
-                  </td>
+                  </td>   
                 </tr>
               );
             })}
           </tbody>
-        </Table>
+        </Table> */}
+        <div className="container-fluid">
+          <h3>Book Lists</h3>
+        </div>
+        <div className="row">
+          {this.props.book.data.map((item) => {
+            return (
+              <ListBook
+                key={item.id}
+                title={item.title}
+                image={item.image}
+                author={item.author}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
