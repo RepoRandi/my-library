@@ -18,18 +18,18 @@ body {
   margin-top: 3px;
 }
 
-.card-body {
+.cb {
   padding: 1rem 0 !important;
   margin-bottom: 1rem;
   height: 150px;
   background-color: whitesmoke;
 }
 
-.card-title {
+.ct {
   font-size: 1.2rem;
 }
 
-.card-text {
+.c-text {
   font-size: 0.9rem;
   padding: 0.1rem 1rem;
   text-align: justify;
@@ -80,17 +80,17 @@ body {
     margin-top: 5px;
   }
 
-  .card-body {
+  .cb {
     padding: 1rem 0 !important;
     margin-bottom: 1rem;
     height: 150px;
   }
 
-  .card-title {
+  .ct {
     font-size: 1.2rem;
   }
 
-  .card-text {
+  .c-text {
     font-size: 0.9rem;
     padding: 0.1rem 1rem;
     text-align: justify;

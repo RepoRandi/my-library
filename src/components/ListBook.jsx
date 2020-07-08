@@ -14,7 +14,7 @@ class ListBook extends Component {
           <div className="col-md">
             <div className="card text-center" style={{ width: "10.5rem" }}>
               <img
-                src={`http://localhost:3000/images/${this.props.image}`}
+                src={`http://localhost:3000/${this.props.image}`}
                 className="card-img-top"
                 alt="img"
               />

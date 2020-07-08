@@ -53,7 +53,7 @@ class GetBooks extends Component {
           <h3>Book Lists</h3>
         </div>
         <div className="row">
-          {this.props.book.data.map((item) => {
+          {this.props.book.data.map((item, index) => {
             return (
               <ListBook
                 key={item.id}

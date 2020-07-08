@@ -82,7 +82,7 @@ class Register extends Component {
                     value={this.state.role}
                     onChange={(e) => this.setState({ role: e.target.value })}
                   >
-                    <option value="">Role...</option>
+                    <option value="0">Role...</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>

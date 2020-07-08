@@ -1,0 +1,23 @@
+/* SideBar */
+
+.nav-link:hover {
+    background-color: grey;
+}
+
+/* Batas SideBar */
+
+/* Content */
+.display-4 {
+    font-weight: bold;
+}
+
+.card-body-icon {
+    position: absolute;
+    z-index: 0;
+    top: 30px;
+    right: 12px;
+    opacity: 0.4;
+    font-size: 100px;
+}
+
+/* Batas Content */

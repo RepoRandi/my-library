@@ -26,7 +26,7 @@ class AddBook extends Component {
     formData.append("id_genre", this.state.id_genre);
     formData.append("id_author", this.state.id_author);
     formData.append("status", this.state.status);
-    this.props.postBook(formData).then(() => {
+    this.props.postBook(formData, this.props.auth.data.token).then(() => {
       this.props.history.push("/");
     });
   };
@@ -115,9 +115,9 @@ class AddBook extends Component {
                       className="custom-select"
                       id="author"
                       required
-                      value={this.state.id_auhor}
+                      value={this.state.id_author}
                       onChange={(e) =>
-                        this.setState({ id_auhor: e.target.value })
+                        this.setState({ id_author: e.target.value })
                       }
                     >
                       <option value="">Author...</option>

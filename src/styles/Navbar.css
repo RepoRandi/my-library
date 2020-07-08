@@ -9,11 +9,11 @@
   z-index: 1;
 }
 
-.nav-link {
+.ml {
   color: black !important;
 }
 
-.nav-link:hover {
+.ml:hover {
   color: palevioletred !important;
 }
 
