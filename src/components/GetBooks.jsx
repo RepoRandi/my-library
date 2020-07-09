@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
 import { connect } from "react-redux";
 import { getBook } from "../redux/actions/book";
 import ListBook from "./ListBook";
@@ -50,7 +49,7 @@ class GetBooks extends Component {
           </tbody>
         </Table> */}
         <div className="container-fluid">
-          <h3>Book Lists</h3>
+          <h3>List Book</h3>
         </div>
         <div className="row">
           {this.props.book.data.map((item, index) => {

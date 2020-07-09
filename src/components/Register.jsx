@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { register } from "../redux/actions/auth";
@@ -21,9 +22,23 @@ class Register extends Component {
       password: this.state.password,
       role: this.state.role,
     };
-    console.log(data);
-    this.props.register(data).then(() => {
-      this.props.history.push("/login");
+    this.props.register(data).then((res) => {
+      Swal.fire(
+        "Register Success!",
+        `Email : ${res.value.data.data.username}`,
+        "success"
+      )
+        .then(() => {
+          this.props.history.push("/login");
+        })
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err,
+          });
+        });
     });
   };
 
@@ -82,7 +97,7 @@ class Register extends Component {
                     value={this.state.role}
                     onChange={(e) => this.setState({ role: e.target.value })}
                   >
-                    <option value="0">Role...</option>
+                    <option value="">Role...</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>

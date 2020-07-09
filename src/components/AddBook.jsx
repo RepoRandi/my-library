@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { postBook } from "../redux/actions/book";
@@ -19,6 +20,7 @@ class AddBook extends Component {
 
   handleAddBook = (event) => {
     event.preventDefault();
+    const token = this.props.auth.data.token;
     const formData = new FormData();
     formData.append("title", this.state.title);
     formData.append("description", this.state.description);
@@ -26,8 +28,23 @@ class AddBook extends Component {
     formData.append("id_genre", this.state.id_genre);
     formData.append("id_author", this.state.id_author);
     formData.append("status", this.state.status);
-    this.props.postBook(formData, this.props.auth.data.token).then(() => {
-      this.props.history.push("/");
+    this.props.postBook(formData, token).then((res) => {
+      Swal.fire(
+        "Insert Book Success!",
+        `With id = ${res.value.data.data.id}`,
+        "success"
+      )
+        .then(() => {
+          this.props.history.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err,
+          });
+        });
     });
   };
 

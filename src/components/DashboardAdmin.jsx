@@ -105,14 +105,14 @@ class DashboardAdmin extends Component {
                 <hr className="bg-secondary" />
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/#">
+                <a className="nav-link text-white" href="/dashboard/author">
                   <FontAwesomeIcon icon={faUserSecret} />
                   &nbsp;List Author
                 </a>
                 <hr className="bg-secondary" />
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/#">
+                <a className="nav-link text-white" href="/dashboard/borrow">
                   <FontAwesomeIcon icon={faBookReader} />
                   &nbsp;Borrow Books
                 </a>
@@ -152,7 +152,7 @@ class DashboardAdmin extends Component {
                   </div>
                   <h3 className="card-title">List Genre</h3>
                   <div className="display-4">100</div>
-                  <a href="/#">
+                  <a href="/dashboard/genre">
                     <p className="card-text text-white">
                       Detail&nbsp;
                       <FontAwesomeIcon icon={faAngleDoubleRight} />
@@ -168,7 +168,7 @@ class DashboardAdmin extends Component {
                   </div>
                   <h3 className="card-title">List Author</h3>
                   <div className="display-4">198</div>
-                  <a href="/#">
+                  <a href="/dashboard/author">
                     <p className="card-text text-white">
                       Detail&nbsp;
                       <FontAwesomeIcon icon={faAngleDoubleRight} />
@@ -184,7 +184,7 @@ class DashboardAdmin extends Component {
                   </div>
                   <h3 className="card-title">Borrow Books</h3>
                   <div className="display-4">45</div>
-                  <a href="/#">
+                  <a href="/dashboard/borrow">
                     <p className="card-text text-white">
                       Detail&nbsp;
                       <FontAwesomeIcon icon={faAngleDoubleRight} />

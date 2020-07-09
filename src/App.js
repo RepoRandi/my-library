@@ -10,6 +10,8 @@ import Detail from "./pages/Detail";
 import Dashboard from "./pages/Dashboard";
 import DashboardBook from "./pages/DashboardBook";
 import DashboardGenre from "./pages/DashboardGenre";
+import DashboardAuthor from "./pages/DashboardAuthor";
+import DashboardBorrow from "./pages/DashboardBorrow";
 import "./styles/Navbar.css";
 import "./styles/Jumbotron.css";
 import "./styles/Search.css";
@@ -26,6 +28,8 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/dashboard/borrow" component={DashboardBorrow} />
+        <Route path="/dashboard/author" component={DashboardAuthor} />
         <Route path="/dashboard/genre" component={DashboardGenre} />
         <Route path="/dashboard/book" component={DashboardBook} />
         <Route path="/dashboard" component={Dashboard} />

@@ -11,7 +11,6 @@ import {
   faBell,
   faTrash,
   faEdit,
-  faAddressBook,
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/logo.png";
@@ -105,14 +104,14 @@ class DashBook extends Component {
                 <hr className="bg-secondary" />
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/#">
+                <a className="nav-link text-white" href="/dashboard/author">
                   <FontAwesomeIcon icon={faUserSecret} />
                   &nbsp;List Author
                 </a>
                 <hr className="bg-secondary" />
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/#">
+                <a className="nav-link text-white" href="/dashboard/borrow">
                   <FontAwesomeIcon icon={faBookReader} />
                   &nbsp;Borrow Books
                 </a>
@@ -169,6 +168,8 @@ class DashBook extends Component {
                       className="btn btn-success rounded"
                       data-toggle="modal"
                       data-target="#modalEdit"
+                      data-placement="top"
+                      title="EDIT"
                     >
                       <FontAwesomeIcon icon={faEdit} />
                     </a>
@@ -179,6 +180,8 @@ class DashBook extends Component {
                       className="btn btn-danger rounded"
                       data-toggle="modal"
                       data-target="#modalDelete"
+                      data-placement="top"
+                      title="DELETE"
                     >
                       <FontAwesomeIcon icon={faTrash} />
                     </a>

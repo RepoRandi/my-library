@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/logo.png";
 
-class DashGenre extends Component {
+class DashAuthor extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -122,8 +122,8 @@ class DashGenre extends Component {
           {/* Content Table */}
           <div className="col-md-10 p-4 pl-5 ">
             <h3>
-              <FontAwesomeIcon icon={faBookOpen} />
-              &nbsp;List Genre
+              <FontAwesomeIcon icon={faUserSecret} />
+              &nbsp;List Author
             </h3>
             <hr />
             <a
@@ -140,7 +140,7 @@ class DashGenre extends Component {
                 <tr>
                   <th scope="col">No</th>
                   <th scope="col">Id</th>
-                  <th scope="col">Genre</th>
+                  <th scope="col">Author</th>
                   <th colSpan="2" scope="col" className="text-center">
                     Actions
                   </th>
@@ -150,7 +150,7 @@ class DashGenre extends Component {
                 <tr>
                   <th scope="row">1</th>
                   <td>11</td>
-                  <td>Novel</td>
+                  <td>Pidi Baiq</td>
                   <td>
                     <a
                       href="/#"
@@ -175,8 +175,8 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">2</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>12</td>
+                  <td>Alex</td>
                   <td>
                     <a
                       href="/#"
@@ -201,8 +201,8 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">3</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>13</td>
+                  <td>Mia</td>
                   <td>
                     <a
                       href="/#"
@@ -227,8 +227,8 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">4</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>14</td>
+                  <td>Sultan</td>
                   <td>
                     <a
                       href="/#"
@@ -253,8 +253,8 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">5</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>15</td>
+                  <td>Mark</td>
                   <td>
                     <a
                       href="/#"
@@ -279,8 +279,8 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">6</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>16</td>
+                  <td>Ahmad</td>
                   <td>
                     <a
                       href="/#"
@@ -612,4 +612,4 @@ class DashGenre extends Component {
   }
 }
 
-export default DashGenre;
+export default DashAuthor;

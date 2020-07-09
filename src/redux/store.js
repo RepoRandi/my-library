@@ -5,15 +5,11 @@ import logger from "redux-logger";
 import promiseMiddleware from "redux-promise-middleware";
 import rootReducer from "./reducers";
 
-// export default createStore(
-//   rootReducer,
-//   applyMiddleware(promiseMiddleware, logger)
-// );
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth", "book"],
+  whitelist: ["auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

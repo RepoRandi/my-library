@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { login } from "../redux/actions/auth";
 import logo from "../images/arrow.png";
@@ -19,25 +20,34 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password,
     };
-    console.log(data);
-    this.props.login(data).then(() => {
-      this.props.history.push("/");
-    });
-    // axios({
-    //   method: "POST",
-    //   url: "http://localhost:3000/auth/login",
-    //   data: {
-    //     username: this.state.username,
-    //     password: this.state.password,
-    //   },
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //     localStorage.setItem("token", response.data.data[0].token);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response);
-    //   });
+    this.props
+      .login(data)
+      .then(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          onOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully",
+        });
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Username or Password is Invalid",
+        });
+      });
   };
 
   render() {

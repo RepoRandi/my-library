@@ -14,8 +14,12 @@ import {
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/logo.png";
+import img1 from "../images/bukan cinderrela.jpg";
+import img2 from "../images/first time.jpg";
+import img3 from "../images/amore.jpg";
+import img4 from "../images/JUDITH.jpg";
 
-class DashGenre extends Component {
+class DashBorrow extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -122,8 +126,8 @@ class DashGenre extends Component {
           {/* Content Table */}
           <div className="col-md-10 p-4 pl-5 ">
             <h3>
-              <FontAwesomeIcon icon={faBookOpen} />
-              &nbsp;List Genre
+              <FontAwesomeIcon icon={faBookReader} />
+              &nbsp;Borrow Books
             </h3>
             <hr />
             <a
@@ -139,9 +143,10 @@ class DashGenre extends Component {
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Id</th>
-                  <th scope="col">Genre</th>
-                  <th colSpan="2" scope="col" className="text-center">
+                  <th scope="col">Title</th>
+                  <th scope="col">Status </th>
+                  <th scope="col">Image</th>
+                  <th colSpan="2" scope="col">
                     Actions
                   </th>
                 </tr>
@@ -149,8 +154,11 @@ class DashGenre extends Component {
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>Bukan Cinderrela</td>
+                  <td className="text-success">Available</td>
+                  <td>
+                    <img src={img1} alt="img..." style={{ width: "8rem" }} />
+                  </td>
                   <td>
                     <a
                       href="/#"
@@ -175,12 +183,15 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">2</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>First Time</td>
+                  <td className="text-success">Available</td>
+                  <td>
+                    <img src={img2} alt="img..." style={{ width: "8rem" }} />
+                  </td>
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-success rounded"
+                      className="btn btn-success"
                       data-toggle="modal"
                       data-target="#modalEdit"
                     >
@@ -190,7 +201,7 @@ class DashGenre extends Component {
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-danger rounded"
+                      className="btn btn-danger"
                       data-toggle="modal"
                       data-target="#modalDelete"
                     >
@@ -201,12 +212,15 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">3</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>Amora</td>
+                  <td className="text-success">Available</td>
+                  <td>
+                    <img src={img3} alt="img..." style={{ width: "8rem" }} />
+                  </td>
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-success rounded"
+                      className="btn btn-success"
                       data-toggle="modal"
                       data-target="#modalEdit"
                     >
@@ -216,7 +230,7 @@ class DashGenre extends Component {
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-danger rounded"
+                      className="btn btn-danger"
                       data-toggle="modal"
                       data-target="#modalDelete"
                     >
@@ -227,12 +241,15 @@ class DashGenre extends Component {
 
                 <tr>
                   <th scope="row">4</th>
-                  <td>11</td>
-                  <td>Novel</td>
+                  <td>Judith</td>
+                  <td className="text-success">Available</td>
+                  <td>
+                    <img src={img4} alt="img..." style={{ width: "8rem" }} />
+                  </td>
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-success rounded"
+                      className="btn btn-success"
                       data-toggle="modal"
                       data-target="#modalEdit"
                     >
@@ -242,59 +259,7 @@ class DashGenre extends Component {
                   <td>
                     <a
                       href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">5</th>
-                  <td>11</td>
-                  <td>Novel</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">6</th>
-                  <td>11</td>
-                  <td>Novel</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
+                      className="btn btn-danger"
                       data-toggle="modal"
                       data-target="#modalDelete"
                     >
@@ -612,4 +577,4 @@ class DashGenre extends Component {
   }
 }
 
-export default DashGenre;
+export default DashBorrow;
