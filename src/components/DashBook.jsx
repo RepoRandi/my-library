@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getBook } from "../redux/actions/book";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTachometerAlt,
@@ -19,9 +21,22 @@ import img1 from "../images/dilan.jpg";
 class DashBook extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      books: [],
+    };
   }
+
+  getAllBook = () => {
+    const token = this.props.auth.data.token;
+    this.props.getBook(token);
+  };
+
+  componentDidMount() {
+    this.getAllBook();
+  }
+
   render() {
+    let i = 1;
     return (
       <div>
         {/* Navbar */}
@@ -152,137 +167,49 @@ class DashBook extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Dilan</td>
-                  <td>Lorem ipsum dolor</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td className="text-success">Available</td>
-                  <td>
-                    <img src={img1} alt="img..." style={{ width: "8rem" }} />
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                      data-placement="top"
-                      title="EDIT"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                      data-placement="top"
-                      title="DELETE"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Dilan</td>
-                  <td>Lorem ipsum dolor</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td className="text-success">Available</td>
-                  <td>
-                    <img src={img1} alt="img..." style={{ width: "8rem" }} />
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Dilan</td>
-                  <td>Lorem ipsum dolor</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td className="text-success">Available</td>
-                  <td>
-                    <img src={img1} alt="img..." style={{ width: "8rem" }} />
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Dilan</td>
-                  <td>Lorem ipsum dolor</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td className="text-success">Available</td>
-                  <td>
-                    <img src={img1} alt="img..." style={{ width: "8rem" }} />
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
+                {this.props.book.data.map((item) => {
+                  return (
+                    <tr key={item.id}>
+                      <th scope="row">{i++}</th>
+                      <td>{item.title}</td>
+                      <td>{item.description}</td>
+                      <td>{item.genre}</td>
+                      <td>{item.author}</td>
+                      <td>{item.status}</td>
+                      <td>
+                        <img
+                          src={`${process.env.REACT_APP_API_URL}${item.image}`}
+                          alt="img..."
+                          style={{ width: "8rem" }}
+                        />
+                      </td>
+                      <td>
+                        <a
+                          href="/#"
+                          className="btn btn-success rounded"
+                          data-toggle="modal"
+                          data-target="#modalEdit"
+                          data-placement="top"
+                          title="EDIT"
+                        >
+                          <FontAwesomeIcon icon={faEdit} />
+                        </a>
+                      </td>
+                      <td>
+                        <a
+                          href="/#"
+                          className="btn btn-danger rounded"
+                          data-toggle="modal"
+                          data-target="#modalDelete"
+                          data-placement="top"
+                          title="DELETE"
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -593,4 +520,11 @@ class DashBook extends Component {
   }
 }
 
-export default DashBook;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  book: state.book,
+});
+
+const mapDispatchToProps = { getBook };
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashBook);
