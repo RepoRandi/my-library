@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
 import { connect } from "react-redux";
-import { getBook } from "../redux/actions/book";
+import { getBook, getDetailBook } from "../redux/actions/book";
+import { postBook, putBook, deleteBook } from "../redux/actions/book";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTachometerAlt,
@@ -16,13 +18,16 @@ import {
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../images/logo.png";
-import img1 from "../images/dilan.jpg";
-
 class DashBook extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [],
+      title: "",
+      description: "",
+      image: [],
+      id_genre: 0,
+      id_auhor: 0,
+      status: "",
     };
   }
 
@@ -31,8 +36,120 @@ class DashBook extends Component {
     this.props.getBook(token);
   };
 
+  // getDetailBook = () => {
+  //   const token = this.props.auth.data.token;
+  //   const id = this.props.match.params.id;
+  //   this.props
+  //     .getDetailBook(id, token)
+  //     .then(() => {
+  //       this.setState({
+  //         book: this.props.book.data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  handleAddBook = (event) => {
+    event.preventDefault();
+    const token = this.props.auth.data.token;
+    const formData = new FormData();
+    formData.append("title", this.state.title);
+    formData.append("description", this.state.description);
+    formData.append("image", this.state.image[0]);
+    formData.append("id_genre", this.state.id_genre);
+    formData.append("id_author", this.state.id_author);
+    formData.append("status", this.state.status);
+    this.props.postBook(formData, token).then((res) => {
+      Swal.fire(
+        `Insert Book ${res.value.data.data.title} Success!`,
+        `With id : ${res.value.data.data.id}`,
+        "success"
+      )
+        .then(() => window.location.reload())
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err,
+          });
+        });
+    });
+  };
+
+  handlePutBook = (event) => {
+    event.preventDefault();
+    const token = this.props.auth.data.token;
+    const id = this.props.match.params.id;
+    const formData = new FormData();
+    formData.append("title", this.state.title);
+    formData.append("description", this.state.description);
+    formData.append("image", this.state.image[0]);
+    formData.append("id_genre", this.state.id_genre);
+    formData.append("id_author", this.state.id_author);
+    formData.append("status", this.state.status);
+    this.props
+      .putBook(id, formData, token)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Update Book Success",
+          showConfirmButton: true,
+          timer: 1500,
+        }).then((result) => {
+          if (result) window.location.reload();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err,
+        });
+      });
+  };
+
+  handleDeleteBook = (event) => {
+    event.preventDefault();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        const token = this.props.auth.data.token;
+        const id = this.props.match.params.id;
+        this.props
+          .deleteBook(id, token)
+          .then((res) => {
+            Swal.fire(
+              "Deleted!",
+              `The Book With id : ${res.value.data.data.id} deleted.`,
+              "success"
+            ).then(() => window.location.reload());
+          })
+          .catch((err) => {
+            console.log(err);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong",
+            });
+          });
+      }
+    });
+  };
+
   componentDidMount() {
     this.getAllBook();
+    // this.getDetailBook();
   }
 
   render() {
@@ -151,7 +268,7 @@ class DashBook extends Component {
               <FontAwesomeIcon icon={faPlusSquare} />
               &nbsp;Add Data
             </a>
-            <table class="table table-striped table-dark table-bordered">
+            <table className="table table-striped table-dark table-bordered">
               <thead>
                 <tr>
                   <th scope="col">No</th>
@@ -200,9 +317,9 @@ class DashBook extends Component {
                           href="/#"
                           className="btn btn-danger rounded"
                           data-toggle="modal"
-                          data-target="#modalDelete"
                           data-placement="top"
                           title="DELETE"
+                          onClick={this.handleDeleteBook}
                         >
                           <FontAwesomeIcon icon={faTrash} />
                         </a>
@@ -236,7 +353,7 @@ class DashBook extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <form className="was-validated">
+                  <form className="was-validated" onSubmit={this.handleAddBook}>
                     <div className="form-group">
                       <label for="titleDetail">Title</label>
                       <input
@@ -246,6 +363,10 @@ class DashBook extends Component {
                         className="form-control"
                         placeholder="Input Title"
                         required
+                        value={this.state.title}
+                        onChange={(e) =>
+                          this.setState({ title: e.target.value })
+                        }
                       ></input>
                     </div>
                     <div className="form-group">
@@ -255,6 +376,9 @@ class DashBook extends Component {
                         id="descripDetail"
                         placeholder="Input Description"
                         required
+                        onChange={(e) =>
+                          this.setState({ description: e.target.value })
+                        }
                       ></textarea>
                     </div>
                     <div className="form-group">
@@ -264,6 +388,9 @@ class DashBook extends Component {
                         className="form-control-file is-invalid"
                         id="uploadDetail"
                         required
+                        onChange={(e) =>
+                          this.setState({ image: e.target.files })
+                        }
                       ></input>
                       <small className="form-text text-muted">
                         Upload Image Maks 2 Mb
@@ -272,7 +399,7 @@ class DashBook extends Component {
                     <div className="form-group">
                       <div className="input-group is-invalid">
                         <div className="input-group-prepend">
-                          <label class="input-group-text" for="genreDetail">
+                          <label className="input-group-text" for="genreDetail">
                             Choose
                           </label>
                         </div>
@@ -280,6 +407,9 @@ class DashBook extends Component {
                           className="custom-select"
                           id="genreDetail"
                           required
+                          onChange={(e) =>
+                            this.setState({ id_genre: e.target.value })
+                          }
                         >
                           <option value="">Genre...</option>
                           <option value="1">One</option>
@@ -291,7 +421,7 @@ class DashBook extends Component {
                     <div className="form-group">
                       <div className="input-group is-invalid">
                         <div className="input-group-prepend">
-                          <label class="input-group-text" for="authorDeail">
+                          <label className="input-group-text" for="authorDeail">
                             Choose
                           </label>
                         </div>
@@ -299,6 +429,9 @@ class DashBook extends Component {
                           className="custom-select"
                           id="authorDeail"
                           required
+                          onChange={(e) =>
+                            this.setState({ id_author: e.target.value })
+                          }
                         >
                           <option value="">Author...</option>
                           <option value="1">One</option>
@@ -321,6 +454,9 @@ class DashBook extends Component {
                           className="custom-select"
                           id="statusDetail"
                           required
+                          onChange={(e) =>
+                            this.setState({ status: e.target.value })
+                          }
                         >
                           <option value="">Status...</option>
                           <option value="Available">Available</option>
@@ -365,7 +501,7 @@ class DashBook extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <form className="was-validated">
+                  <form className="was-validated" onSubmit={this.handlePutBook}>
                     <div className="form-group">
                       <label for="titleDetail">Title</label>
                       <input
@@ -375,6 +511,10 @@ class DashBook extends Component {
                         className="form-control"
                         placeholder="Input Title"
                         required
+                        value={this.state.title}
+                        onChange={(e) =>
+                          this.setState({ title: e.target.value })
+                        }
                       ></input>
                     </div>
                     <div className="form-group">
@@ -384,6 +524,10 @@ class DashBook extends Component {
                         id="descripDetail"
                         placeholder="Input Description"
                         required
+                        value={this.state.description}
+                        onChange={(e) =>
+                          this.setState({ description: e.target.value })
+                        }
                       ></textarea>
                     </div>
                     <div className="form-group">
@@ -393,6 +537,9 @@ class DashBook extends Component {
                         className="form-control-file is-invalid"
                         id="uploadDetail"
                         required
+                        onChange={(e) =>
+                          this.setState({ image: e.target.files })
+                        }
                       ></input>
                       <small className="form-text text-muted">
                         Upload Image Maks 2 Mb
@@ -409,6 +556,10 @@ class DashBook extends Component {
                           className="custom-select"
                           id="genreDetail"
                           required
+                          value={this.state.id_genre}
+                          onChange={(e) =>
+                            this.setState({ id_genre: e.target.value })
+                          }
                         >
                           <option value="">Genre...</option>
                           <option value="1">One</option>
@@ -428,6 +579,10 @@ class DashBook extends Component {
                           className="custom-select"
                           id="authorDeail"
                           required
+                          value={this.state.id_auhor}
+                          onChange={(e) =>
+                            this.setState({ id_auhor: e.target.value })
+                          }
                         >
                           <option value="">Author...</option>
                           <option value="1">One</option>
@@ -450,6 +605,10 @@ class DashBook extends Component {
                           className="custom-select"
                           id="statusDetail"
                           required
+                          value={this.state.status}
+                          onChange={(e) =>
+                            this.setState({ status: e.target.value })
+                          }
                         >
                           <option value="">Status...</option>
                           <option value="Available">Available</option>
@@ -471,49 +630,6 @@ class DashBook extends Component {
             </div>
           </div>
           {/* Batas Modal Edit */}
-          {/* Modal Delete */}
-          <div
-            class="modal fade"
-            id="modalDelete"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div
-                  class="modal-body text-center font-weight-bold"
-                  style={{ fontSize: "2rem" }}
-                >
-                  You sure delete this data
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger">
-                    Delete
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-warning"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Batas Modal Delete */}
         </div>
       </div>
     );
@@ -525,6 +641,12 @@ const mapStateToProps = (state) => ({
   book: state.book,
 });
 
-const mapDispatchToProps = { getBook };
+const mapDispatchToProps = {
+  getBook,
+  getDetailBook,
+  postBook,
+  putBook,
+  deleteBook,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashBook);
