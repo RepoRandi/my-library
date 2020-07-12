@@ -1,4 +1,12 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
+import { connect } from "react-redux";
+import {
+  getAuthor,
+  postAuthor,
+  putAuthor,
+  deleteAuthor,
+} from "../redux/actions/author";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTachometerAlt,
@@ -18,9 +26,108 @@ import logo from "../images/logo.png";
 class DashAuthor extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      author: "",
+    };
   }
+
+  getAllAuthor = () => {
+    const token = this.props.auth.data.token;
+    this.props.getAuthor(token);
+  };
+
+  handleAddAuthor = (e) => {
+    e.preventDefault();
+    const data = {
+      author: this.state.author,
+    };
+    const token = this.props.auth.data.token;
+    this.props.postAuthor(data, token).then((res) => {
+      Swal.fire(
+        `Insert Author ${res.value.data.data.author} Success!`,
+        `With id : ${res.value.data.data.id}`,
+        "success"
+      )
+        .then(() => window.location.reload())
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err,
+          });
+        });
+    });
+  };
+
+  handlePutAuthor = (e) => {
+    e.preventDefault();
+    const token = this.props.auth.data.token;
+    const id = this.props.match.params.id;
+    const data = {
+      author: this.state.author,
+    };
+    this.props
+      .putAuthor(id, data, token)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Update Author Success",
+          showConfirmButton: true,
+          timer: 1500,
+        }).then((result) => {
+          if (result) window.location.reload();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err,
+        });
+      });
+  };
+
+  handleDeleteAuthor = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        const token = this.props.auth.data.token;
+        this.props
+          .deleteAuthor(id, token)
+          .then((res) => {
+            Swal.fire(
+              "Deleted!",
+              `The Author With id : ${res.value.data.data.id} deleted.`,
+              "success"
+            ).then(() => window.location.reload());
+          })
+          .catch((err) => {
+            console.log(err);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong",
+            });
+          });
+      }
+    });
+  };
+
+  componentDidMount() {
+    this.getAllAuthor();
+  }
+
   render() {
+    let i = 1;
     return (
       <div>
         {/* Navbar */}
@@ -139,7 +246,6 @@ class DashAuthor extends Component {
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Id</th>
                   <th scope="col">Author</th>
                   <th colSpan="2" scope="col" className="text-center">
                     Actions
@@ -147,161 +253,36 @@ class DashAuthor extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>11</td>
-                  <td>Pidi Baiq</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">2</th>
-                  <td>12</td>
-                  <td>Alex</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">3</th>
-                  <td>13</td>
-                  <td>Mia</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">4</th>
-                  <td>14</td>
-                  <td>Sultan</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">5</th>
-                  <td>15</td>
-                  <td>Mark</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">6</th>
-                  <td>16</td>
-                  <td>Ahmad</td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-success rounded"
-                      data-toggle="modal"
-                      data-target="#modalEdit"
-                    >
-                      <FontAwesomeIcon icon={faEdit} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      href="/#"
-                      className="btn btn-danger rounded"
-                      data-toggle="modal"
-                      data-target="#modalDelete"
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
-                  </td>
-                </tr>
+                {this.props.author.data.map((item) => {
+                  return (
+                    <tr key={item.id}>
+                      <th scope="row">{i++}</th>
+                      <td>{item.author}</td>
+                      <td>
+                        <button
+                          className="btn btn-success rounded"
+                          data-toggle="modal"
+                          data-target="#modalEdit"
+                          data-placement="top"
+                          title="EDIT"
+                        >
+                          <FontAwesomeIcon icon={faEdit} />
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-danger rounded"
+                          data-toggle="modal"
+                          data-placement="top"
+                          title="DELETE"
+                          onClick={() => this.handleDeleteAuthor(item.id)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -317,7 +298,7 @@ class DashAuthor extends Component {
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">Add Book</h5>
+                  <h5 className="modal-title">Add Author</h5>
                   <button
                     type="button"
                     className="close"
@@ -328,97 +309,24 @@ class DashAuthor extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <form className="was-validated">
+                  <form
+                    className="was-validated"
+                    onSubmit={this.handleAddAuthor}
+                  >
                     <div className="form-group">
-                      <label for="titleDetail">Title</label>
+                      <label for="titleDetail">Author</label>
                       <input
                         type="text"
                         name=""
                         id="titleDetail"
                         className="form-control"
-                        placeholder="Input Title"
+                        placeholder="Input Author"
                         required
+                        value={this.state.author}
+                        onChange={(e) =>
+                          this.setState({ author: e.target.value })
+                        }
                       ></input>
-                    </div>
-                    <div className="form-group">
-                      <label for="descripDetail">Description</label>
-                      <textarea
-                        className="form-control is-invalid"
-                        id="descripDetail"
-                        placeholder="Input Description"
-                        required
-                      ></textarea>
-                    </div>
-                    <div className="form-group">
-                      <label for="uploadDetail">Upload Image</label>
-                      <input
-                        type="file"
-                        className="form-control-file is-invalid"
-                        id="uploadDetail"
-                        required
-                      ></input>
-                      <small className="form-text text-muted">
-                        Upload Image Maks 2 Mb
-                      </small>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label class="input-group-text" for="genreDetail">
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="genreDetail"
-                          required
-                        >
-                          <option value="">Genre...</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label class="input-group-text" for="authorDeail">
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="authorDeail"
-                          required
-                        >
-                          <option value="">Author...</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label
-                            className="input-group-text"
-                            for="statusDetail"
-                          >
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="statusDetail"
-                          required
-                        >
-                          <option value="">Status...</option>
-                          <option value="Available">Available</option>
-                          <option value="Not Available">Not Available</option>
-                        </select>
-                      </div>
                     </div>
                     <div className="modal-footer">
                       <button type="submit" className="btn btn-primary">
@@ -457,97 +365,24 @@ class DashAuthor extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <form className="was-validated">
+                  <form
+                    className="was-validated"
+                    onSubmit={this.handlePutAuthor}
+                  >
                     <div className="form-group">
-                      <label for="titleDetail">Title</label>
+                      <label for="titleDetail">Author</label>
                       <input
                         type="text"
                         name=""
                         id="titleDetail"
                         className="form-control"
-                        placeholder="Input Title"
+                        placeholder="Input Author"
                         required
+                        value={this.state.author}
+                        onChange={(e) =>
+                          this.setState({ author: e.target.value })
+                        }
                       ></input>
-                    </div>
-                    <div className="form-group">
-                      <label for="descripDetail">Description</label>
-                      <textarea
-                        className="form-control is-invalid"
-                        id="descripDetail"
-                        placeholder="Input Description"
-                        required
-                      ></textarea>
-                    </div>
-                    <div className="form-group">
-                      <label for="uploadDetail">Upload Image</label>
-                      <input
-                        type="file"
-                        className="form-control-file is-invalid"
-                        id="uploadDetail"
-                        required
-                      ></input>
-                      <small className="form-text text-muted">
-                        Upload Image Maks 2 Mb
-                      </small>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label className="input-group-text" for="genreDetail">
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="genreDetail"
-                          required
-                        >
-                          <option value="">Genre...</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label className="input-group-text" for="authorDeail">
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="authorDeail"
-                          required
-                        >
-                          <option value="">Author...</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <div className="input-group is-invalid">
-                        <div className="input-group-prepend">
-                          <label
-                            className="input-group-text"
-                            for="statusDetail"
-                          >
-                            Choose
-                          </label>
-                        </div>
-                        <select
-                          className="custom-select"
-                          id="statusDetail"
-                          required
-                        >
-                          <option value="">Status...</option>
-                          <option value="Available">Available</option>
-                          <option value="Not Available">Not Available</option>
-                        </select>
-                      </div>
                     </div>
                     <div className="modal-footer">
                       <button type="submit" className="btn btn-primary">
@@ -563,53 +398,22 @@ class DashAuthor extends Component {
             </div>
           </div>
           {/* Batas Modal Edit */}
-          {/* Modal Delete */}
-          <div
-            class="modal fade"
-            id="modalDelete"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div
-                  class="modal-body text-center font-weight-bold"
-                  style={{ fontSize: "2rem" }}
-                >
-                  You sure delete this data
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger">
-                    Delete
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-warning"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Batas Modal Delete */}
         </div>
       </div>
     );
   }
 }
 
-export default DashAuthor;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  author: state.author,
+});
+
+const mapDispatchToProps = {
+  getAuthor,
+  postAuthor,
+  putAuthor,
+  deleteAuthor,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashAuthor);

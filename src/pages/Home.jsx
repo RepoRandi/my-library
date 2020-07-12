@@ -5,7 +5,6 @@ import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Sliders from "../components/Sliders";
 import GetBooks from "../components/GetBooks";
-
 class Home extends Component {
   constructor(props) {
     super(props);

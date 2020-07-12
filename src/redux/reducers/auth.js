@@ -28,6 +28,26 @@ const auth = (state = initialState, action) => {
         isError: false,
         data: action.payload.data.data[0],
       };
+    case "REGISTER_PENDING":
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    case "REGISTER_REJECTED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMsg: "Data Reject",
+      };
+    case "REGISTER_FULFILLED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        data: action.payload.data.data[0],
+      };
     case "LOGOUT_FULFILLED":
       return {
         ...state,

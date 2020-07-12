@@ -112,8 +112,7 @@ class DashBook extends Component {
       });
   };
 
-  handleDeleteBook = (event) => {
-    event.preventDefault();
+  handleDeleteBook = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -125,7 +124,6 @@ class DashBook extends Component {
     }).then((result) => {
       if (result.value) {
         const token = this.props.auth.data.token;
-        const id = this.props.match.params.id;
         this.props
           .deleteBook(id, token)
           .then((res) => {
@@ -301,8 +299,7 @@ class DashBook extends Component {
                         />
                       </td>
                       <td>
-                        <a
-                          href="/#"
+                        <button
                           className="btn btn-success rounded"
                           data-toggle="modal"
                           data-target="#modalEdit"
@@ -310,19 +307,18 @@ class DashBook extends Component {
                           title="EDIT"
                         >
                           <FontAwesomeIcon icon={faEdit} />
-                        </a>
+                        </button>
                       </td>
                       <td>
-                        <a
-                          href="/#"
+                        <button
                           className="btn btn-danger rounded"
                           data-toggle="modal"
                           data-placement="top"
                           title="DELETE"
-                          onClick={this.handleDeleteBook}
+                          onClick={() => this.handleDeleteBook(item.id)}
                         >
                           <FontAwesomeIcon icon={faTrash} />
-                        </a>
+                        </button>
                       </td>
                     </tr>
                   );
