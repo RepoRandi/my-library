@@ -27,7 +27,7 @@ class Login extends Component {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 2000,
           timerProgressBar: true,
           onOpen: (toast) => {
             toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -37,8 +37,9 @@ class Login extends Component {
         Toast.fire({
           icon: "success",
           title: "Signed in successfully",
+        }).then(() => {
+          this.props.history.push("/");
         });
-        this.props.history.push("/");
       })
       .catch((err) => {
         console.log(err);
