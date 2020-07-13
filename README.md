@@ -17,7 +17,7 @@
 ## Built-With
 - [React.js](http://reactjs.org/) - FrontEnd Library JavaScript
 - [Bootstrap](https://getbootstrap.com/) - Css Framework
-- [JWT](https://jwt.io/) - Login/Register authentication
+- [Redux](https://redux.js.org/) - JavaScript library for managing application state
 
 ## Features
 - [x] Login/Register AUTH With JWT
@@ -58,11 +58,11 @@
 ### Endpoint
 | Verbs     | Description      |
 | --------- | -----------------|
-| `/books`  | Book             |
+| `/book`  | Book             |
 | `/auth`   | Auth             |
-| `/authors`| Author           |
-| `/genres` | Genre            |
-| `/users`  | User             |
+| `/author`| Author           |
+| `/genre` | Genre            |
+| `/user`  | User             |
 
 ## Author
 - [Randi Maulana Akbar](https://www.linkedin.com/in/randi-maulana-akbar/)
