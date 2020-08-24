@@ -4,15 +4,15 @@
 > Create UI For Library Applications
 
 ## :memo: Table Of Content
-* [Built-With](https://github.com/RepoRandi/LibraryApps#Built-With)
-* [Features](https://github.com/RepoRandi/LibraryApps#Features)
-* [Prerequisites](https://github.com/RepoRandi/LibraryApps#Prerequisites)
-* [Development](https://github.com/RepoRandi/LibraryApps#Development)
-* [Live](https://github.com/RepoRandi/LibraryApps#Live)
-* [HTTP-Verbs](https://github.com/RepoRandi/LibraryApps#HTTP-Verbs)
-* [Endpoint](https://github.com/RepoRandi/LibraryApps#Endpoint)
-* [Author](https://github.com/RepoRandi/LibraryApps#Author)
-* [License](https://github.com/RepoRandi/LibraryApps#License)
+* [Built-With](https://github.com/RepoRandi/Mylibrary#Built-With)
+* [Features](https://github.com/RepoRandi/Mylibrary#Features)
+* [Prerequisites](https://github.com/RepoRandi/Mylibrary#Prerequisites)
+* [Development](https://github.com/RepoRandi/Mylibrary#Development)
+* [Live](https://github.com/RepoRandi/Mylibrary#Live)
+* [HTTP-Verbs](https://github.com/RepoRandi/Mylibrary#HTTP-Verbs)
+* [Endpoint](https://github.com/RepoRandi/Mylibrary#Endpoint)
+* [Author](https://github.com/RepoRandi/Mylibrary#Author)
+* [License](https://github.com/RepoRandi/Mylibrary#License)
 
 ## Built-With
 - [React.js](http://reactjs.org/) - FrontEnd Library JavaScript
